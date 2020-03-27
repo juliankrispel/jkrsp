@@ -2,6 +2,14 @@ provider "aws" {
   region = "eu-west-2"
 }
 
+terraform {
+  backend "s3" {
+    bucket = "jkrsp-tf-state"
+    key    = "jkrsp.com.tfstate"
+    region = "eu-west-2"
+  }
+}
+
 resource "aws_s3_bucket" "b" {
   bucket = "jkrsp.com"
   acl    = "public-read"
