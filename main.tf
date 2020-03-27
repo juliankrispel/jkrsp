@@ -33,7 +33,8 @@ resource "aws_s3_bucket" "b" {
     index_document = "index.html"
   }
 }
-
-provisioner "local-exec" {
-  command = "aws s3 sync public aws_s3_bucket.b.id"
+resource "null_resource" "example1" {
+  provisioner "local-exec" {
+    command = "aws s3 sync public aws_s3_bucket.b.id"
+  }
 }
