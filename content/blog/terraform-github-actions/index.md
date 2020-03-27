@@ -6,15 +6,13 @@ description: A gatsby blog on s3, deployed with terraform and github actions.
 
 I've been using terraform at work a lot, to build serverless services on aws. It makes building services on AWS a lot easier. So I'll start my new blog by showing how few steps it takes to deploy host this blog on s3 and automate deployment via github actions and terraform.
 
-## Prerequisites
-
 ### Create an AWS account
 
-Go to [https://aws.amazon.com/](https://aws.amazon.com/) and create an account
+If you don't already have one, go to [https://aws.amazon.com/](https://aws.amazon.com/) and create an account
 
 ### Create an s3 bucket for your terraform state
 
-You'll need this so that terraform can persist state between runs
+You'll need this so that terraform can persist state between runs.
 
 ### Create a repository with your gatsby site in it
 
@@ -33,13 +31,11 @@ gatsby new gatsby-starter-blog https://github.com/gatsbyjs/gatsby-starter-blog
 
 ### Deploy your aws s3 bucket and all objects via terraform
 
+### Write your terraform
 
-So with github actions I want to automate two things:
+If you haven't used terraform don't sweat it. It's straight forward.
 
-1. Build the gatsby site
-2. Configure an s3 bucket and deploy our gatsby build to it
 
-### Remote state
-
+### Access denied error on public s3 bucket
 
 
