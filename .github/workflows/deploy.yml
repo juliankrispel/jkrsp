@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: hello
-      run: ./hello.sh
+      run: ls -la
 #  build:
 #    name: Build Gatsby Site
 #    runs-on: ubuntu-latest
