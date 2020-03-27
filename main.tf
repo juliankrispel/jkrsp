@@ -34,12 +34,6 @@ resource "aws_s3_bucket" "b" {
   }
 }
 
-resource "aws_s3_bucket_object" "example" {
-  for_each = fileset(path.module, "public/**/*")
-
-  bucket = aws_s3_bucket.b.id
-  key    = replace(each.value, "public", "")
-  source = each.value
-  content_type = each.content_type
-  acl    = "public-read"
+provisioner "local-exec" {
+  command = "aws s3 sync public aws_s3_bucket.b.id"
 }
