@@ -16,14 +16,14 @@ resource "aws_s3_bucket" "b" {
 
   policy = <<POLICY
     {
-      "Version":"2012-10-17",
-      "Statement":[{
-      "Sid":"PublicReadGetObject",
-            "Effect":"Allow",
-        "Principal": "*",
-          "Action":["s3:GetObject"],
-          "Resource":["arn:aws:s3:::jkrsp.com/*"
-          ]
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Sid": "PublicReadGetObject",
+          "Effect": "Allow",
+          "Principal": "*",
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::jkrsp.com/*"
         }
       ]
     }
@@ -40,4 +40,5 @@ resource "aws_s3_bucket_object" "example" {
   bucket = aws_s3_bucket.b.id
   key    = replace(each.value, "public", "")
   source = each.value
+  acl    = "public-read"
 }
