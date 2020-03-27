@@ -1,0 +1,12 @@
+on: push
+name: Build Gatsby Site
+jobs:
+  build:
+    name: Build Gatsby Site
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Build Gatsby Site
+      uses: jzweifel/gatsby-cli-github-action@master
+      with:
+        gatsby-arg: build
