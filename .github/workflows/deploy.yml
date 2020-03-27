@@ -10,6 +10,10 @@ jobs:
       run: ls -la
     - name: hello
       run: ./hello.sh
+    - name: node
+      run: node -v
+    - name: npm
+      run: npm --version
 #  build:
 #    name: Build Gatsby Site
 #    runs-on: ubuntu-latest
