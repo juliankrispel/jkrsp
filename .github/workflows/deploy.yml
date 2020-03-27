@@ -6,8 +6,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-    - name: hello
+    - name: ls
       run: ls -la
+    - name: hello
+      run: ./hello.sh
 #  build:
 #    name: Build Gatsby Site
 #    runs-on: ubuntu-latest
