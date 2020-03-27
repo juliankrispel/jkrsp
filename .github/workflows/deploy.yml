@@ -6,14 +6,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
-    - name: ls
-      run: ls -la
-    - name: hello
-      run: ./hello.sh
+    - name: yarn
+      run: yarn --version
+    - name: install dependencies
+      run: npm install
     - name: node
-      run: node -v
-    - name: npm
-      run: npm --version
+      run: npm install
 #  build:
 #    name: Build Gatsby Site
 #    runs-on: ubuntu-latest
