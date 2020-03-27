@@ -73,7 +73,11 @@ So far so good. Now lets add our github action. You need to create a file at `.g
 The content for now will look like this
 
 ```yml
-on: push
+## We only want to deploy when a commit has landed in master
+on:
+  push:
+    branches:
+      - master
 name: Build Gatsby Site
 jobs:
   deploy:
