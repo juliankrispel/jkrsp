@@ -40,5 +40,6 @@ resource "aws_s3_bucket_object" "example" {
   bucket = aws_s3_bucket.b.id
   key    = replace(each.value, "public", "")
   source = each.value
+  content_type = each.content_type
   acl    = "public-read"
 }
