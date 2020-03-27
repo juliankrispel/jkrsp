@@ -1,6 +1,5 @@
 provider "aws" {
   region = "eu-west-2"
-  profile = ""
 }
 
 resource "aws_s3_bucket" "b" {
