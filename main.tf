@@ -15,7 +15,7 @@ resource "aws_s3_bucket" "b" {
 resource "aws_s3_bucket_object" "example" {
   for_each = fileset(path.module, "public/**/*")
 
-  bucket = aws_s3_bucket.example.id
-  key    = replace(each.value, "my-dir", "base_s3_key")
+  bucket = aws_s3_bucket.b.id
+  key    = replace(each.value, "public", "")
   source = each.value
 }
