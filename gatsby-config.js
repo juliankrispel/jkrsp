@@ -3,10 +3,10 @@ module.exports = {
     title: `jkrsp`,
     author: {
       name: `Julian Krispel-Samsel`,
-      summary: `who lives in Brighton and builds things with a keyboard.`,
+      summary: `who lives in Brighton and builds things for the web.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `Julians blog.`,
+    siteUrl: `jkrsp.com`,
     social: {
       twitter: `juliandoesstuff`,
     },
