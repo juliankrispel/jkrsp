@@ -6,7 +6,7 @@ module.exports = {
       summary: `who lives in Brighton and builds things for the web.`,
     },
     description: `Julians blog.`,
-    siteUrl: `jkrsp.com`,
+    siteUrl: `http://jkrsp.com`,
     social: {
       twitter: `juliandoesstuff`,
     },
