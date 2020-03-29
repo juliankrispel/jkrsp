@@ -32,4 +32,21 @@ resource "aws_s3_bucket" "b" {
   website {
     index_document = "index.html"
   }
+
+  tags = {
+    ManagedBy = "terraform"
+  }
+}
+
+resource "aws_acm_certificate" "cert" {
+  domain_name       = "jkrsp.com"
+  validation_method = "DNS"
+
+  tags = {
+    ManagedBy = "terraform"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
 }
