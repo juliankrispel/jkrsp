@@ -39,15 +39,23 @@ const Bio = () => {
     <div
       style={{
         display: `flex`,
-        marginBottom: rhythm(2.5),
+        marginBottom: rhythm(1),
       }}
     >
       <p>
-        Written by <strong>{author.name}</strong> {author.summary}
+        <strong>{author.name}</strong> {author.summary}
         {` `}
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
+        <br />
+        <small><a href={`https://twitter.com/${social.twitter}`}>
+          Twitter
+        </a>,{' '}
+        <a href={`http://github.com/juliankrispel`}>
+          Github
+        </a>,{' '}
+        <a href={`https://www.linkedin.com/in/julian-krispel-67487a1b/`}>
+          LinkedIn
+        </a></small>
+
       </p>
     </div>
   )

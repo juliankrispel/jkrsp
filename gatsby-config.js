@@ -3,7 +3,7 @@ module.exports = {
     title: `jkrsp`,
     author: {
       name: `Julian Krispel-Samsel`,
-      summary: `who lives in Brighton and builds things for the web.`,
+      summary: `builds software and runs teams`,
     },
     description: `Julians blog.`,
     siteUrl: `http://jkrsp.com`,
@@ -57,6 +57,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-feed`,
+    'gatsby-plugin-dark-mode',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

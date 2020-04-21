@@ -1,0 +1,74 @@
+/* global.css */
+
+body {
+  transition: 300ms background-color;
+  --bg: white;
+  --textNormal: #333;
+  --textTitle: #333;
+  --textLink: #1a1b23;
+  --logo: #333;
+  --hr: hsla(0, 0%, 0%, 0.2);
+
+  background-color: var(--bg);
+}
+
+body.dark {
+  -webkit-font-smoothing: antialiased;
+
+  --bg: #1a1b23;
+  --logo: #fff;
+  --textNormal: rgba(255, 255, 255, 0.88);
+  --textTitle: white;
+  --textLink: white;
+  --hr: hsla(0, 0%, 100%, 0.2);
+}
+
+.light-switch input{
+  display: none;
+}
+
+.light-switch {
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0;
+  text-align: center;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+
+}
+
+.light-switch span {
+  padding-left: .3em;
+}
+
+a {
+  color: var(--textLink);
+  outline: none;
+}
+
+a.anchor svg[aria-hidden="true"] {
+  stroke: var(--textLink);
+}
+
+hr {
+  background: var(--hr);
+}
+
+.logo {
+  font-family: 'Roboto Slab';
+  font-size: 1.5em;
+  display: inline-block;
+  transform: rotate(-90deg);
+  padding: 0;
+  margin-top: -2em;
+  padding-bottom: 2em;
+}
+
+header {
+  padding-top: 0;
+  margin: 0;
+}
