@@ -34,3 +34,5 @@ jobs:
     - uses: chrislennon/action-aws-cli@v1.1
     - name: sync to s3
       run: aws s3 sync public s3://jkrsp.com
+    - name: invalidate cloudfront cache
+      run: aws cloudfront create-invalidation --distribution-id="${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}" --paths="/*"

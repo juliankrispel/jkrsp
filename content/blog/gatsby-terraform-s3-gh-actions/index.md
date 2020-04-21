@@ -4,7 +4,7 @@ date: "2020-03-28T10:00:00.284Z"
 description: A tutorial on how I put my new blog on the internet, using gatsby, s3, github actions and terraform.
 ---
 
-I've been using terraform at work a lot, to build serverless things on aws. It makes building  managing infrastructure a lot easier. I'll start my new blog with a quick tutorial on what I did. Bear in mind - this isn't really the easiest way to create a blog 😅- AWS can be a bit wieldy - but it may be useful to anyone who wants to host static websites on S3.
+I've been using terraform at work a lot, to build serverless things on aws. It makes building  managing infrastructure a lot easier. I'll start my new blog with a quick tutorial on what I did. Bear in mind - this isn't really the easiest way to create a blog 😅- AWS can be a bit unwieldy - but it may be useful to anyone who wants to host static websites on S3.
 
 __tldr;__ - The outcome of this tutorial is this blog - [the code of which is hosted on github](github.com/juliankrispel/jkrsp)
 
