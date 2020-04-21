@@ -27,6 +27,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           >
             {post.frontmatter.title}
           </h1>
+          {post.frontmatter.draft && <small>[Draft]</small>}
           <p
             style={{
               ...scale(-1 / 5),
@@ -92,6 +93,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       html
       frontmatter {
+        draft
         title
         date(formatString: "MMMM DD, YYYY")
         description

@@ -9,7 +9,7 @@ exports.createPages = async ({ graphql, actions }) => {
     `
       {
         allMarkdownRemark(
-          filter: { frontmatter: { draft: { nin: true } } }
+          filter: { fields: { visible: { eq: true } } }
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -53,6 +53,16 @@ exports.createPages = async ({ graphql, actions }) => {
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
+
+  if (node.frontmatter != null) {
+    const visible = !node.frontmatter.draft || process.env.NODE_ENV.toLowerCase() === 'development'
+
+    createNodeField({
+      name: `visible`,
+      node,
+      value: visible,
+    })
+  }
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })

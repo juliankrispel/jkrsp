@@ -29,6 +29,7 @@ const BlogIndex = ({ data, location }) => {
                 </Link>
               </h3>
               <small>{node.frontmatter.date}</small>
+              {node.frontmatter.draft && <small> [Draft]</small>}
             </header>
             <section>
               <p
@@ -54,7 +55,7 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-      filter: { frontmatter: { draft: { nin: true } } }
+      filter: { fields: { visible: { eq: true } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
@@ -65,6 +66,7 @@ export const pageQuery = graphql`
           }
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
+            draft
             title
             description
           }
