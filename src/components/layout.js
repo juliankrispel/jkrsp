@@ -58,7 +58,7 @@ const Layout = ({ location, title, children }) => {
               onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')}
               checked={theme === 'dark'}
             />{' '}
-            {theme === 'dark' ? '🌙' : '🌞' }
+            {theme === 'dark' ? '🌙' : '☀' }
           </label>
         )}
       </ThemeToggler>

@@ -1,10 +1,12 @@
 ---
 title: A blog on gatsby, s3, terraform and github actions 
 date: "2020-03-28T10:00:00.284Z"
-description: A gatsby blog on s3, deployed with terraform and github actions.
+description: A tutorial on how I put my new blog on the internet, using gatsby, s3, github actions and terraform.
 ---
 
-I've been using terraform at work a lot, to build serverless services on aws. It makes building services on AWS a lot easier. So I'll start my new blog by showing how few steps it takes to deploy host this blog on s3 and automate deployment via github actions and terraform.
+I've been using terraform at work a lot, to build serverless things on aws. It makes building  managing infrastructure a lot easier. I'll start my new blog with a quick tutorial on what I did. Bear in mind - this isn't really the easiest way to create a blog 😅- AWS can be a bit wieldy - but it may be useful to anyone who wants to host static websites on S3.
+
+__tldr;__ - The outcome of this tutorial is this blog - [the code of which is hosted on github](github.com/juliankrispel/jkrsp)
 
 ### Create an AWS account and install the aws cli
 
