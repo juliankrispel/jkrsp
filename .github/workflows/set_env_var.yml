@@ -9,8 +9,8 @@ jobs:
     env:
       BUCKET: my-regular-bucket'
     steps:
-      - name: set the thing
-        run: echo $BUCKET
+      - name: Checkout
+        uses: actions/checkout@v1
         with:
           BUCKET: hello
       - name: print
