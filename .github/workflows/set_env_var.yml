@@ -11,8 +11,7 @@ jobs:
     steps:
       - name: set the thing
         with:
-          BUCKET: 'hello'
-        run: echo $BUCKET
+          BUCKET: hello
       - name: print
         run: echo $BUCKET
 
