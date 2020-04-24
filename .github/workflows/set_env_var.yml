@@ -1,0 +1,18 @@
+on:
+  push:
+    branches-ignore:
+      - master
+name: Set the env vars
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      BUCKET: my-regular-bucket'
+    steps:
+      - name: set the thing
+        with:
+          BUCKET: 'hello'
+        run: echo $BUCKET
+      - name: print
+        run: echo $BUCKET
+
