@@ -7,12 +7,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      BUCKET: my-regular-bucket'
+      action_state: pink
     steps:
-      - name: Checkout
-        uses: allenevans/set-env@v1.0.0
-        with:
-          BUCKET: hello
-      - name: print
-        run: echo $BUCKET
+      - name: set thing
+        run: echo "::set-env name=action_state::yellow"
+      - name: print thing
+        run: echo $action_state
+        
+      
 
