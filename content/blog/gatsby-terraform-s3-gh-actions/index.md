@@ -7,7 +7,7 @@ draft: false
 
 I've been using terraform at work a lot, to build serverless things on aws. It makes building  managing infrastructure a lot easier. I'll start my new blog with a quick tutorial on what I did. Bear in mind - this isn't really the easiest way to create a blog 😅- AWS can be a bit unwieldy - but it may be useful to anyone who wants to host static websites on S3.
 
-__tldr;__ - The outcome of this tutorial is this blog - [the code of which is hosted on github](github.com/juliankrispel/jkrsp)
+__tldr;__ - The outcome of this tutorial is this blog - [the code of which is hosted on github](http://www.github.com/juliankrispel/jkrsp)
 
 ### Create an AWS account and install the aws cli
 
