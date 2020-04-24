@@ -10,6 +10,7 @@ jobs:
       BUCKET: my-regular-bucket'
     steps:
       - name: set the thing
+        run: echo $BUCKET
         with:
           BUCKET: hello
       - name: print
