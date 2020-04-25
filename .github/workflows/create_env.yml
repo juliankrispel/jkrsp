@@ -7,7 +7,9 @@ jobs:
   create_env:
     runs-on: ubuntu-latest
     env:
-      action_state: pink
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      ENV_NAME: pink
     steps:
       - name: print
         run: echo $action_state
