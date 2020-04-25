@@ -37,7 +37,7 @@ jobs:
           tf_actions_subcommand: 'apply'
           args: 'tf.plan'
       - name: 'Use Terraform Output'
-        run: echo ${{ steps.apply.outputs  }}
+        run: echo ${{ steps.apply.outputs.bucket_domain_name  }}
       - uses: chrislennon/action-aws-cli@v1.1
       - name: sync to s3
         run: aws s3 sync public s3://${{ env.ENV_PREFIX }}jkrsp.com
