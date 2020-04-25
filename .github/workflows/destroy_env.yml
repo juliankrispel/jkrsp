@@ -9,7 +9,7 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      ENV_PREFIX: '${{ github.GITHUB_REF }}.'
+      ENV_PREFIX: '${{ jobs.destroy_env.env.GITHUB_REF }}.'
     steps:
       - name: print var
         run: echo $ENV_PREFIX
