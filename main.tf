@@ -14,7 +14,7 @@ variable "env_prefix" {
 }
 
 resource "aws_s3_bucket" "b" {
-  bucket = "${env_prefix}jkrsp.com"
+  bucket = "${var.env_prefix}jkrsp.com"
   acl    = "public-read"
 
   policy = <<POLICY
