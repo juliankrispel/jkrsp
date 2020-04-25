@@ -6,7 +6,7 @@ on:
 
 name: Create Env
 jobs:
-  deploy:
+  create_env:
     runs-on: ubuntu-latest
     env:
       action_state: pink

@@ -6,7 +6,7 @@ on:
 
 name: Destroy env
 jobs:
-  deploy:
+  destroy_env:
     runs-on: ubuntu-latest
     env:
       action_state: pink
