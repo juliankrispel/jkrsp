@@ -22,7 +22,7 @@ jobs:
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'init'
-          args: '-backend-config="key=${{ env.ENV_PREFIX }}jkrsp.com.tfstate" --var="env_prefix=${{ env.ENV_PREFIX }}"'
+          args: '-backend-config="key=${{ env.ENV_PREFIX }}jkrsp.com.tfstate" -var="env_prefix=${{ env.ENV_PREFIX }}"'
       - name: 'Terraform Plan'
         uses: hashicorp/terraform-github-actions@master
         with:
