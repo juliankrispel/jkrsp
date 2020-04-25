@@ -1,0 +1,22 @@
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches-ignore:
+      - master
+
+name: Create Env
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      action_state: pink
+    steps:
+      - name: print
+        run: echo $action_state
+      - name: set thing
+        run: echo "::set-env name=action_state::yellow"
+      - name: print
+        run: echo $action_state
+        
+      
+

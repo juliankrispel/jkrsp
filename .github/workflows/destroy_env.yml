@@ -1,8 +1,10 @@
 on:
-  push:
+  pull_request:
+    types: [closed]
     branches-ignore:
       - master
-name: Set the env vars
+
+name: Destroy env
 jobs:
   deploy:
     runs-on: ubuntu-latest
