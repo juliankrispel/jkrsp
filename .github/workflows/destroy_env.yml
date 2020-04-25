@@ -1,8 +1,6 @@
 on:
   pull_request:
     types: [closed]
-    branches-ignore:
-      - master
 
 name: Destroy env
 jobs:

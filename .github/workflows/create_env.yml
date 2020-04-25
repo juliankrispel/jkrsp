@@ -1,8 +1,6 @@
 on:
   pull_request:
-    types: [opened, synchronize, edited]
-    branches-ignore:
-      - master
+    types: [reopened, opened, synchronize, edited]
 
 name: Create Env
 jobs:
