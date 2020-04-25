@@ -9,21 +9,25 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      ENV_NAME: pink
+      ENV_PREFIX: '${{ GITHUB_REF }}.'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: 'Terraform Init'
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'init'
-          args: '-backend-config="key=${{ env.ENV_PREFIX }}jkrsp.com.tfstate" --var="env_prefix=${{ env.ENV_PREFIX }}"'
-      - name: 'Terraform Destroy'
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'destroy'
-      - uses: chrislennon/action-aws-cli@v1.1
-      - name: sync to s3
-        run: aws s3 sync public s3://${{ env.ENV_PREFIX }}jkrsp.com
+      - name: print var
+        run: echo $ENV_PREFIX
+
+#      - name: Checkout
+#        uses: actions/checkout@v1
+#      - name: 'Terraform Init'
+#        uses: hashicorp/terraform-github-actions@master
+#        with:
+#          tf_actions_version: 0.12.13
+#          tf_actions_subcommand: 'init'
+#          args: '-backend-config="key=${{ env.ENV_PREFIX }}jkrsp.com.tfstate" --var="env_prefix=${{ env.ENV_PREFIX }}"'
+#      - name: 'Terraform Destroy'
+#        uses: hashicorp/terraform-github-actions@master
+#        with:
+#          tf_actions_version: 0.12.13
+#          tf_actions_subcommand: 'destroy'
+#      - uses: chrislennon/action-aws-cli@v1.1
+#      - name: sync to s3
+#        run: aws s3 sync public s3://${{ env.ENV_PREFIX }}jkrsp.com
+#
