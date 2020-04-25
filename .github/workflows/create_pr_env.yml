@@ -41,7 +41,6 @@ jobs:
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'output'
-          args: 'tf.plan'
       - name: 'Use Terraform Output'
         run: echo ${{ steps.terraform.outputs.bucket_domain_name  }}
 #      - uses: chrislennon/action-aws-cli@v1.1
