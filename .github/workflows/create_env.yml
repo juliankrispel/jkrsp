@@ -28,7 +28,7 @@ jobs:
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'plan'
-          args: '-var="env_prefix=${{ env.ENV_PREFIX }}" -out tf.plan'
+          args: '-var="is_temp_env=true" -var="env_prefix=${{ env.ENV_PREFIX }}" -out tf.plan'
       - name: 'Terraform Apply'
         uses: hashicorp/terraform-github-actions@master
         with:

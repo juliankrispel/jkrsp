@@ -10,10 +10,14 @@ terraform {
 }
 
 variable "env_prefix" { }
+variable "is_temp_env" {
+  default = false
+}
 
 resource "aws_s3_bucket" "b" {
   bucket = "${var.env_prefix}jkrsp.com"
   acl    = "public-read"
+  force_destroy = var.is_temp_env
 
   policy = <<POLICY
 {
