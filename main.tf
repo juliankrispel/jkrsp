@@ -9,8 +9,12 @@ terraform {
   }
 }
 
+variable "env_prefix" {
+  default = ""
+}
+
 resource "aws_s3_bucket" "b" {
-  bucket = "jkrsp.com"
+  bucket = "${env_prefix}jkrsp.com"
   acl    = "public-read"
 
   policy = <<POLICY
