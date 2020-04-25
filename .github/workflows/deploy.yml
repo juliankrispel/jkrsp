@@ -11,18 +11,18 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       ENV_PREFIX: ''
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-    - name: Install Dependencies
-      run: yarn
-    - name: Build Site
-      run: yarn build
+#    - name: Checkout
+#      uses: actions/checkout@v1
+#    - name: Install Dependencies
+#      run: yarn
+#    - name: Build Site
+#      run: yarn build
     - name: 'Terraform Init'
       uses: hashicorp/terraform-github-actions@master
       with:
         tf_actions_version: 0.12.13
         tf_actions_subcommand: 'init'
-        args: '-backend-config="key=${env.ENV_PREFIX}jkrsp.com.tfstate"'
+        args: '-backend-config="key=${{ env.ENV_PREFIX }}jkrsp.com.tfstate"'
     - name: 'Terraform Plan'
       uses: hashicorp/terraform-github-actions@master
       with:
