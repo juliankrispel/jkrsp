@@ -9,9 +9,7 @@ terraform {
   }
 }
 
-variable "env_prefix" {
-  default = ""
-}
+variable "env_prefix" { }
 
 resource "aws_s3_bucket" "b" {
   bucket = "${var.env_prefix}jkrsp.com"
