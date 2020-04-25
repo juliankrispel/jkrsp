@@ -28,11 +28,13 @@ jobs:
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'plan'
+          args: '-var="env_prefix=${{ env.ENV_PREFIX }}"'
       - name: 'Terraform Apply'
         uses: hashicorp/terraform-github-actions@master
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'apply'
+          args: '-var="env_prefix=${{ env.ENV_PREFIX }}"'
       - uses: chrislennon/action-aws-cli@v1.1
       - name: sync to s3
         run: aws s3 sync public s3://jkrsp.com
