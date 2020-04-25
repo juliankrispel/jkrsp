@@ -2,7 +2,7 @@ on:
   pull_request:
     types: [closed]
 
-name: Destroy env
+name: Destroy PR Env
 jobs:
   destroy_env:
     runs-on: ubuntu-latest
@@ -26,6 +26,3 @@ jobs:
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'destroy'
-      - uses: chrislennon/action-aws-cli@v1.1
-      - name: sync to s3
-        run: aws s3 sync public s3://${{ env.ENV_PREFIX }}jkrsp.com
