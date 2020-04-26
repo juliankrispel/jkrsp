@@ -26,3 +26,9 @@ jobs:
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'destroy'
+      - name: Tell PR that we have destroyed the thing
+        uses: thollander/actions-comment-pull-request@master
+        with:
+          message: 'Temporary environment now destroyed'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
