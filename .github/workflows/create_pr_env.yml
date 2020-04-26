@@ -41,11 +41,11 @@ jobs:
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'output'
-          args: 'bucket_domain_name'
+          args: 'website'
       - name: 'Use Terraform Output'
         run: echo ${{ steps.terraform.outputs.tf_actions_output }}
       - name: Display Website link on PR
         uses: thollander/actions-comment-pull-request@master
         with:
-          message: 'Example of message ${{ steps.terraform.outputs.tf_actions_output }}'
+          message: '[Review website here](${{ steps.terraform.outputs.tf_actions_output }})'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
