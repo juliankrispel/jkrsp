@@ -25,7 +25,7 @@ const { repository } = await graphql(
     headers: {
       subjectId,
       body: 'Hello there',
-      authorization: `token secret123`
+      authorization: process.env.GITHUB_TOKEN
     }
   }
 );

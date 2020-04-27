@@ -53,4 +53,4 @@ jobs:
       - run: node .github/actions/comment-on-pr.js
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          msg: "[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})"
+#          msg: "[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})"
