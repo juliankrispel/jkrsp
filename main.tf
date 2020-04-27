@@ -44,5 +44,5 @@ resource "aws_s3_bucket" "b" {
 }
 
 output "website" {
-  value = aws_s3_bucket.b.website_endpoint
+  value = "http://${aws_s3_bucket.b.website_endpoint}"
 }
