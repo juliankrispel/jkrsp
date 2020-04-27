@@ -19,7 +19,7 @@ jobs:
       - name: Set env
         run: echo "::set-env name=ENV_PREFIX::$(git rev-parse --abbrev-ref HEAD)"
       - name: Print env
-        run: ehco $ENV_PREFIX
+        run: echo $ENV_PREFIX
 #      - name: Install Dependencies
 #        run: yarn
 #      - name: Build Site
