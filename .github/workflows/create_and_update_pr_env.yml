@@ -53,11 +53,12 @@ jobs:
           tf_actions_subcommand: 'output'
           args: 'website'
       - name: 'Use Terraform Output'
-        run: echo ${{ steps.terraform.outputs.tf_actions_output }}
+        id: website_output
+        run: echo "::set-output name=url::${{ steps.terraform.outputs.tf_actions_output }}"
       - name: Display Website link on PR
         uses: unsplash/comment-on-pr@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          msg: ${{ steps.terraform.outputs.tf_actions_output }}
+          msg: ${{ steps.website_output.outputs.url}
 #
