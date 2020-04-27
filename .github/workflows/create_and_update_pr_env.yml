@@ -48,7 +48,8 @@ jobs:
       - name: 'Use Terraform Output'
         run: echo ${{ steps.terraform.outputs.tf_actions_output }} | sed "s/\"//g"
       - name: Display Website link on PR
-        uses: thollander/actions-comment-pull-request@master
-        with:
-          message: '[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})'
+        uses: unsplash/comment-on-pr@master
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: "[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})"
