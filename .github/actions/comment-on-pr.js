@@ -22,7 +22,7 @@ graphql(
     subjectId,
     body: 'Hello there',
     headers: {
-      authorization: process.env.GITHUB_TOKEN
+      authorization: `token ${process.env.GITHUB_TOKEN}`
     }
   }
 ).then(({ repository }) => {
