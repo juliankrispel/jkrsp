@@ -51,7 +51,6 @@ jobs:
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'output'
-          args: 'website'
       - name: 'Use Terraform Output'
         run: echo ${{ steps.terraform.outputs.tf_actions_output }}
       - name: Display Website link on PR
