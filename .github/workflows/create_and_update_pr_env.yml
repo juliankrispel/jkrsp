@@ -1,6 +1,9 @@
 on:
-  pull_request:
-    types: [reopened, opened, synchronize, edited]
+  push:
+    branches-ignore:
+      - master
+  #pull_request:
+    # types: [reopened, opened, synchronize, edited]
 
 name: Create PR Env
 jobs:

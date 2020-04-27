@@ -23,7 +23,7 @@ Although in this tutorial I am just provisioning an S3 bucket with terraform (fo
 
 ### Github actions to control the lifecycle of short lived environments.
 
-We'll create 3 github actions as part of this tutorial to manage our environments. Github actions are basically `yml` files that are located in `.github/workflows/`
+We'll create 3 github actions as part of this tutorial to manage our environments. Github actions are basically `YAML` files that are located in `.github/workflows/`.
 
 1. `create_pr_env.yml` - The lifecycle of a feature starts when pull request is opened. This is when we want to create our short lived environment.
 2. `update_pr_env.yml` - When the pull request is updated, we want to update the environment to reflect the changes made.
