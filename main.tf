@@ -5,28 +5,33 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "jkrsp-tf-state"
-    key    = "jkrsp.com.tfstate"
     region = "eu-west-2"
   }
 }
 
+variable "env_prefix" { }
+variable "is_temp_env" {
+  default = false
+}
+
 resource "aws_s3_bucket" "b" {
-  bucket = "jkrsp.com"
+  bucket = "${var.env_prefix}jkrsp.com"
   acl    = "public-read"
+  force_destroy = var.is_temp_env
 
   policy = <<POLICY
+{
+  "Version": "2012-10-17",
+  "Statement": [
     {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Sid": "PublicReadGetObject",
-          "Effect": "Allow",
-          "Principal": "*",
-          "Action": "s3:GetObject",
-          "Resource": "arn:aws:s3:::jkrsp.com/*"
-        }
-      ]
+      "Sid": "PublicReadGetObject",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::${var.env_prefix}jkrsp.com/*"
     }
+  ]
+}
   POLICY
 
   website {
@@ -36,4 +41,8 @@ resource "aws_s3_bucket" "b" {
   tags = {
     ManagedBy = "terraform"
   }
+}
+
+output "website" {
+  value = aws_s3_bucket.b.website_endpoint
 }

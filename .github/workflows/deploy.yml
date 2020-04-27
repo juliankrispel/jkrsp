@@ -9,30 +9,34 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      ENV_PREFIX: ''
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-    - name: Install Dependencies
-      run: yarn
-    - name: Build Site
-      run: yarn build
-    - name: 'Terraform Init'
-      uses: hashicorp/terraform-github-actions@master
-      with:
-        tf_actions_version: 0.12.13
-        tf_actions_subcommand: 'init'
-    - name: 'Terraform Plan'
-      uses: hashicorp/terraform-github-actions@master
-      with:
-        tf_actions_version: 0.12.13
-        tf_actions_subcommand: 'plan'
-    - name: 'Terraform Apply'
-      uses: hashicorp/terraform-github-actions@master
-      with:
-        tf_actions_version: 0.12.13
-        tf_actions_subcommand: 'apply'
-    - uses: chrislennon/action-aws-cli@v1.1
-    - name: sync to s3
-      run: aws s3 sync public s3://jkrsp.com
-    - name: invalidate cloudfront cache
-      run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths="/*"
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Install Dependencies
+        run: yarn
+      - name: Build Site
+        run: yarn build
+      - name: 'Terraform Init'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'init'
+          args: '-backend-config="key=${{ env.ENV_PREFIX }}jkrsp.com.tfstate"'
+      - name: 'Terraform Plan'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'plan'
+          args: '-var="env_prefix=${{ env.ENV_PREFIX }}" -out tf.plan'
+      - name: 'Terraform Apply'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'apply'
+          args: 'tf.plan'
+      - uses: chrislennon/action-aws-cli@v1.1
+      - name: sync to s3
+        run: aws s3 sync public s3://jkrsp.com
+      - name: invalidate cloudfront cache
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths="/*"
