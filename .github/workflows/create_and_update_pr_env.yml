@@ -17,8 +17,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Set env
+<<<<<<< Updated upstream
         run: echo "::set-env name=BRANCH_NAME::$(git symbolic-ref --short HEAD)"
         #run: echo "::set-env name=BRANCH_NAME::$(git name-rev --no-undefined --name-only HEAD)"
+=======
+        run: echo "::set-env name=BRANCH_NAME::$(git name-rev --name-only HEAD | sed 's/remotes\/origin\///')"
+>>>>>>> Stashed changes
       - name: Print env
         run: echo $ENV_PREFIX
 #      - name: Install Dependencies
