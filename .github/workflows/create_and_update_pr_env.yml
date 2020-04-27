@@ -51,6 +51,6 @@ jobs:
       - name: 'Use Terraform Output'
         run: echo ${{ steps.terraform.outputs.tf_actions_output }}
       - run: node .github/actions/comment-on-pr.js
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #          msg: "[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})"
