@@ -9,8 +9,7 @@ const ev = JSON.parse(
 const subjectId = ev.pull_request.number
 
 // See https://developer.github.com/v3/issues/#create-an-issue
-
-const { repository } = await graphql(
+graphql(
   `
     mutation AddAComment {
       addComment(input: {
@@ -28,7 +27,8 @@ const { repository } = await graphql(
       authorization: process.env.GITHUB_TOKEN
     }
   }
-);
+).then(({ repository }) => {
+  console.log("Commented on pr");
+});
 
-console.log("Commented on pr");
 
