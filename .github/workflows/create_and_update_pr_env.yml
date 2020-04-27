@@ -20,8 +20,8 @@ jobs:
 #        run: echo "::set-env name=BRANCH_NAME::$(git name-rev --name-only HEAD | sed 's/remotes\/origin\///')"
 #      - name: Print env
 #        run: echo $BRANCH_NAME
-#      - name: Install Dependencies
-#        run: yarn
+      - name: Install Dependencies
+        run: yarn
 #      - name: Build Site
 #        run: yarn build
 #      - name: 'Terraform Init'

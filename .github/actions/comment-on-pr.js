@@ -1,7 +1,5 @@
 const { Octokit } = require("@octokit/core");
-const octokit = new Octokit();
-const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
-
+const { graphql } = new Octokit();
 const fs = require('fs')
 const ev = JSON.parse(
   fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8')
