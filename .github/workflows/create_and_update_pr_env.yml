@@ -1,7 +1,4 @@
 on:
-#  push:
-#    branches-ignore:
-#      - master
   pull_request:
     types: [reopened, opened, synchronize, edited]
 
@@ -51,23 +48,9 @@ jobs:
         with:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'output'
-          args: 'website'
-      - name: Comment 1
-        uses: unsplash/comment-on-pr@master
-        env:
+      - name: 'Use Terraform Output'
+        run: echo ${{ steps.terraform.outputs.tf_actions_output }}
+      - run: node .github/actions/comment-on-pr.js
+        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          msg: '[link](${{ steps.terraform.outputs.tf_actions_output }})'
-#
-      - name: Comment 2
-        uses: github-actions-up-and-running/pr-comment@v1.0.0
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          message: '[link](${{ steps.terraform.outputs.tf_actions_output }})'
-
-      - name: Comment 3
-        uses: jungwinter/comment@v1
-        with:
-          type: create
-          token: ${{ secrets.GITHUB_TOKEN }}
-          body: '[link](${{ steps.terraform.outputs.tf_actions_output }})'
+          msg: "[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})"
