@@ -53,7 +53,7 @@ jobs:
           tf_actions_subcommand: 'output'
           args: 'website'
       - name: 'Use Terraform Output'
-        run: echo ${{ steps.terraform.outputs.tf_actions_output }} | sed "s/\"//g"
+        run: echo ${{ steps.terraform.outputs.tf_actions_output }}
       - name: Display Website link on PR
         uses: unsplash/comment-on-pr@master
         env:
