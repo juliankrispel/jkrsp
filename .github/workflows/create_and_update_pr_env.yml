@@ -12,7 +12,7 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      ENV_PREFIX: '${{ github.head_ref }}.'
+      ENV_PREFIX: '${{ github.ref }}.'
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -52,4 +52,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          msg: "[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})"
+          message: "[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})"
