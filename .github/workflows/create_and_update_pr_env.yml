@@ -1,7 +1,4 @@
 on:
-#  push:
-#    branches-ignore:
-#      - master
   pull_request:
     types: [reopened, opened, synchronize, edited]
 
@@ -53,10 +50,7 @@ jobs:
           tf_actions_subcommand: 'output'
       - name: 'Use Terraform Output'
         run: echo ${{ steps.terraform.outputs.tf_actions_output }}
-      - name: Display Website link on PR
-        uses: unsplash/comment-on-pr@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: node .github/actions/comment-on-pr.js
         with:
-          msg: "[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})"
-#
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          msg: "[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})"

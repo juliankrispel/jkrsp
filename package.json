@@ -35,6 +35,8 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "@octokit/core": "^2.5.0",
+    "octokit": "^1.0.0-hello-world",
     "prettier": "^1.19.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
