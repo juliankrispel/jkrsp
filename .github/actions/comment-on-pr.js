@@ -22,13 +22,7 @@ graphql(
     subjectId,
     body: 'Hello there',
     headers: {
-<<<<<<< Updated upstream
-      subjectId,
-      body: 'Hello there',
-      authorization: `token ${process.env.GITHUB_TOKEN}`
-=======
       authorization: process.env.GITHUB_TOKEN
->>>>>>> Stashed changes
     }
   }
 ).then(({ repository }) => {
