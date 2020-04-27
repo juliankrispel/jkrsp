@@ -16,12 +16,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Event Name
-        run: echo ${{ github.event_name }}
-      - name: Set env
+      - name: Set branch name from pr
+        if: github.event_name == 'pull_request'
+        run: echo "::set-env name=BRANCH_NAME::${{ github.head_ref }}"
+      - name: Set branch name from commit hash
+        if: github.event_name == 'push'
         run: echo "::set-env name=BRANCH_NAME::$(git name-rev --name-only HEAD | sed 's/remotes\/origin\///')"
       - name: Print env
-        run: echo $ENV_PREFIX
+        run: echo $BRANCH_NAME
 #      - name: Install Dependencies
 #        run: yarn
 #      - name: Build Site
