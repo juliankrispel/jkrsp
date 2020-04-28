@@ -16,7 +16,7 @@ jobs:
       - name: Install Dependencies
         run: yarn
       - run: node .github/actions/comment.js
-        with:
+        env:
           myToken: ${{ secrets.GITHUB_TOKEN }}
 
 #      - name: Checkout
