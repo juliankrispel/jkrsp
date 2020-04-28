@@ -14,7 +14,7 @@ jobs:
       - run: echo '::set-output name=boing::"hello"'
         id: boing
       - run: echo $thing
-        env: 
+        with: 
           thing: format('hello there {0}', ${{ steps.boing.outputs.boing }})
 #      - name: Checkout
 #        uses: actions/checkout@v1
