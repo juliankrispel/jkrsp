@@ -59,10 +59,8 @@ jobs:
       - uses: octokit/request-action@v2.x
         id: create_check_run
         with:
-          route: POST /repos/:owner/:repo/issues/:issue_number/comments
-          owner: ${{ github.repository_owner }}
+          route: POST /repos/:repo/issues/:issue_number/comments
           repo: ${{ github.repository }}
-          repository: ${{ github.repository }}
           issue_number: ${{ github.event.pull_request.number }}
           mediaType: '{"previews": ["antiope"]}'
           name: "Test check run"
