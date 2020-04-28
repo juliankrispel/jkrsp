@@ -9,52 +9,39 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      BRANCH_NAME: ${{ github.head_ref }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-#      - name: Set branch name from pr
-#        if: github.event_name == 'pull_request'
-#        run: echo "::set-env name=BRANCH_NAME::${{ github.head_ref }}"
-#      - name: Set branch name from commit hash
-#        if: github.event_name == 'push'
-#        run: echo "::set-env name=BRANCH_NAME::$(git name-rev --name-only HEAD | sed 's/remotes\/origin\///')"
-#      - name: Print env
-#        run: echo $BRANCH_NAME
-#      - name: Install Dependencies
-#        run: yarn
-#      - name: Build Site
-#        run: yarn build
-#      - name: 'Terraform Init'
-#        uses: hashicorp/terraform-github-actions@master
-#        with:
-#          tf_actions_version: 0.12.13
-#          tf_actions_subcommand: 'init'
-#          args: '-backend-config="key=${{ env.BRANCH_NAME }}.jkrsp.com.tfstate"'
-#      - name: 'Terraform Plan'
-#        uses: hashicorp/terraform-github-actions@master
-#        with:
-#          tf_actions_version: 0.12.13
-#          tf_actions_subcommand: 'plan'
-#          args: '-var="is_temp_env=true" -var="env_prefix=${{ env.BRANCH_NAME }}." -out tf.plan'
-#      - name: 'Terraform Apply'
-#        uses: hashicorp/terraform-github-actions@master
-#        with:
-#          tf_actions_version: 0.12.13
-#          tf_actions_subcommand: 'apply'
-#          args: 'tf.plan'
-#      - name: 'Terraform Output'
-#        id: terraform
-#        uses: hashicorp/terraform-github-actions@master
-#        with:
-#          tf_actions_version: 0.12.13
-#          tf_actions_subcommand: 'output'
+      - name: Install Dependencies
+        run: yarn
+      - name: Build Site
+        run: yarn build
+      - name: 'Terraform Init'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'init'
+          args: '-backend-config="key=${{ env.BRANCH_NAME }}.jkrsp.com.tfstate"'
+      - name: 'Terraform Plan'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'plan'
+          args: '-var="is_temp_env=true" -var="env_prefix=${{ env.BRANCH_NAME }}." -out tf.plan'
+      - name: 'Terraform Apply'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'apply'
+          args: 'tf.plan'
+      - name: 'Terraform Output'
+        id: terraform
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'output'
 
-#      - name: 'Use Terraform Output'
-#        run: echo ${{ steps.terraform.outputs.tf_actions_output }}
-
-#      - run: |
-#          echo ${{ github.repository }}
-#          echo "YO WHATUP"
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -67,8 +54,6 @@ jobs:
           repo: 'jkrsp'
           owner: ${{ github.repository_owner }}
           issue_number: ${{ github.event.pull_request.number }}
-          body: "Test check run"
+          body: "[Review website here](${{ steps.terraform.outputs.tf_actions_output }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-#          msg: "[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})"
