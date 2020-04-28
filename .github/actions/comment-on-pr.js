@@ -1,7 +1,5 @@
 const { Octokit } = require("@octokit/core");
-const octokit = new Octokit();
-const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
-
+const { graphql } = new Octokit();
 const fs = require('fs')
 const ev = JSON.parse(
   fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8')
@@ -9,8 +7,7 @@ const ev = JSON.parse(
 const subjectId = ev.pull_request.number
 
 // See https://developer.github.com/v3/issues/#create-an-issue
-
-const { repository } = await graphql(
+graphql(
   `
     mutation AddAComment {
       addComment(input: {
@@ -22,13 +19,14 @@ const { repository } = await graphql(
     }
   `,
   {
+    subjectId,
+    body: 'Hello there',
     headers: {
-      subjectId,
-      body: 'Hello there',
-      authorization: process.env.GITHUB_TOKEN
+      authorization: `token ${process.env.GITHUB_TOKEN}`
     }
   }
-);
+).then(({ repository }) => {
+  console.log("Commented on pr");
+});
 
-console.log("Commented on pr");
 
