@@ -52,6 +52,6 @@ jobs:
           repo: 'jkrsp'
           owner: ${{ github.repository_owner }}
           issue_number: ${{ github.event.pull_request.number }}
-          body: ${{ format('[Review website here]({0})', steps.terraform.outputs.website) }}
+          body: ${{ format('[Review website here]({0})', steps.terraform.outputs.tf_actions_output) }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
