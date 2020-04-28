@@ -45,9 +45,6 @@ jobs:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'output'
           args: 'website'
-      - name: Extract output
-        id: website
-        run: echo '::set-output name=url::$(${{ steps.terraform.outputs.tf_actions_output }} | sed "s/\"//g")'
       - uses: octokit/request-action@v2.x
         id: create_check_run
         with:
@@ -55,6 +52,6 @@ jobs:
           repo: 'jkrsp'
           owner: ${{ github.repository_owner }}
           issue_number: ${{ github.event.pull_request.number }}
-          body: ${{ format('[Review website here]({0})', steps.website.outputs.url) }}
+          body: ${{ format('[Review website here]({0})', steps.terraform.outputs.website) }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
