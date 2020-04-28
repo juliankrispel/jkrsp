@@ -55,12 +55,17 @@ jobs:
 #      - run: |
 #          echo ${{ github.repository }}
 #          echo "YO WHATUP"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
 
       - uses: octokit/request-action@v2.x
         id: create_check_run
         with:
-          route: POST /repos/:repo/issues/:issue_number/comments
-          repo: ${{ github.repository }}
+          route: POST /repos/:owner/:repo/issues/:issue_number/comments
+          repo: 'jkrsp'
+          owner: ${{ github.repository_owner }}
           issue_number: ${{ github.event.pull_request.number }}
           mediaType: '{"previews": ["antiope"]}'
           name: "Test check run"
