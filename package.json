@@ -35,6 +35,8 @@
     "typography-theme-wordpress-2016": "^0.16.19"
   },
   "devDependencies": {
+    "@actions/core": "^1.2.3",
+    "@actions/github": "^2.1.1",
     "@octokit/core": "^2.5.0",
     "octokit": "^1.0.0-hello-world",
     "prettier": "^1.19.1"
