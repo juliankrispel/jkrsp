@@ -1,20 +1,20 @@
-# on:
-#   pull_request:
-#     types: [closed]
-# 
-# name: Destroy PR Env
-# jobs:
-#   destroy_env:
-#     runs-on: ubuntu-latest
-#     env:
-#       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#       ENV_PREFIX: '${{ github.head_ref }}.'
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v1
-#         with:
-#           ref: ${{ github.head_ref }}
+ on:
+   pull_request:
+     types: [closed]
+ 
+ name: Destroy PR Env
+ jobs:
+   destroy_env:
+     runs-on: ubuntu-latest
+     env:
+       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+       ENV_PREFIX: '${{ github.head_ref }}.'
+     steps:
+       - name: Checkout
+         uses: actions/checkout@v1
+         with:
+           ref: ${{ github.head_ref }}
 #       - name: 'Terraform Init'
 #         uses: hashicorp/terraform-github-actions@master
 #         with:

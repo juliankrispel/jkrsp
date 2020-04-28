@@ -20,8 +20,8 @@ jobs:
 #        run: echo "::set-env name=BRANCH_NAME::$(git name-rev --name-only HEAD | sed 's/remotes\/origin\///')"
 #      - name: Print env
 #        run: echo $BRANCH_NAME
-      - name: Install Dependencies
-        run: yarn
+#      - name: Install Dependencies
+#        run: yarn
 #      - name: Build Site
 #        run: yarn build
 #      - name: 'Terraform Init'
@@ -51,7 +51,24 @@ jobs:
 
 #      - name: 'Use Terraform Output'
 #        run: echo ${{ steps.terraform.outputs.tf_actions_output }}
-      - run: node .github/actions/comment-on-pr.js
+
+#      - run: |
+#          echo ${{ github.repository }}
+#          echo "YO WHATUP"
+
+      - uses: octokit/request-action@v2.x
+        id: create_check_run
+        with:
+          route: POST /repos/:owner/:repo/issues/:issue_number/comments
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.repository }}
+          repository: ${{ github.repository }}
+          issue_number: ${{ github.event.pull_request.number }}
+          mediaType: '{"previews": ["antiope"]}'
+          name: "Test check run"
+          head_sha: ${{ github.sha }}
+          output: '{"title":"Test check run title","summary": "A summary of the test check run", "images": [{"alt": "Test image", "image_url": "https://octodex.github.com/images/jetpacktocat.png"}]}'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 #          msg: "[Review website here](http://${{ steps.terraform.outputs.tf_actions_output }})"
