@@ -11,7 +11,6 @@ async function run() {
   const { issue_number, github_token } = process.env
 
   const octokit = new github.GitHub(github_token);
-  console.log({ myToken })
 
   const { data } = await octokit.issues.createComment({
       issue_number,
