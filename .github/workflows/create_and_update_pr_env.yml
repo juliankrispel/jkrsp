@@ -46,6 +46,8 @@ jobs:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'output'
           args: 'website'
+      - name: sync to s3
+        run: aws s3 sync public s3://${{ env.BRANCH_NAME }}.jkrsp.com
       - run: node .github/actions/comment.js
         env:
           github_token: ${{ secrets.GITHUB_TOKEN }}
