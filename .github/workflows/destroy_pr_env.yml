@@ -15,21 +15,21 @@
          uses: actions/checkout@v1
          with:
            ref: ${{ github.head_ref }}
-#       - name: 'Terraform Init'
-#         uses: hashicorp/terraform-github-actions@master
-#         with:
-#           tf_actions_version: 0.12.13
-#           tf_actions_subcommand: 'init'
-#           args: '-backend-config="key=${{ env.ENV_PREFIX }}jkrsp.com.tfstate"'
-#       - name: 'Terraform Destroy'
-#         uses: hashicorp/terraform-github-actions@master
-#         with:
-#           tf_actions_version: 0.12.13
-#           tf_actions_subcommand: 'destroy'
-#       - name: Tell PR that we have destroyed the thing
-#         uses: thollander/actions-comment-pull-request@master
-#         with:
-#           message: 'Temporary environment now destroyed'
-#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-# 
-# 
+       - name: 'Terraform Init'
+         uses: hashicorp/terraform-github-actions@master
+         with:
+           tf_actions_version: 0.12.13
+           tf_actions_subcommand: 'init'
+           args: '-backend-config="key=${{ env.ENV_PREFIX }}jkrsp.com.tfstate"'
+       - name: 'Terraform Destroy'
+         uses: hashicorp/terraform-github-actions@master
+         with:
+           tf_actions_version: 0.12.13
+           tf_actions_subcommand: 'destroy'
+       - name: Tell PR that we have destroyed the thing
+         uses: thollander/actions-comment-pull-request@master
+         with:
+           message: 'Temporary environment now destroyed'
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+ 
+ 
