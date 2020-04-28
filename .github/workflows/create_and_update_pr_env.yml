@@ -67,10 +67,7 @@ jobs:
           repo: 'jkrsp'
           owner: ${{ github.repository_owner }}
           issue_number: ${{ github.event.pull_request.number }}
-          mediaType: '{"previews": ["antiope"]}'
-          name: "Test check run"
-          head_sha: ${{ github.sha }}
-          output: '{"title":"Test check run title","summary": "A summary of the test check run", "images": [{"alt": "Test image", "image_url": "https://octodex.github.com/images/jetpacktocat.png"}]}'
+          body: "Test check run"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
