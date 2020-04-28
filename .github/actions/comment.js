@@ -8,15 +8,17 @@ async function run() {
   // The YML workflow will need to set myToken with the GitHub Secret Token
   // myToken: ${{ secrets.GITHUB_TOKEN }}
   // https://help.github.com/en/actions/automating-your-workflow-with-github-actions/authenticating-with-the-github_token#about-the-github_token-secret
-  const myToken = core.getInput('myToken');
+  const { issue_number, github_token } = process.env
 
-  const octokit = new github.GitHub(myToken);
+  const octokit = new github.GitHub(github_token);
+  console.log({ myToken })
 
-  const { data: pullRequest } = await octokit.issues.createComment({
+  const { data } = await octokit.issues.createComment({
+      issue_number,
       body: "hello"
   });
 
-  console.log(pullRequest);
+  console.log(data);
 }
 
 run();

@@ -16,8 +16,9 @@ jobs:
       - name: Install Dependencies
         run: yarn
       - run: node .github/actions/comment.js
-        with:
-          myToken: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          issue_number: ${{ github.event.pull_request.number }}
 
 #      - name: Checkout
 #        uses: actions/checkout@v1
