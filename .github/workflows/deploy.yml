@@ -11,11 +11,14 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       ENV_PREFIX: ''
     steps:
-      - run: echo '::set-output name=boing::hello'
+      - run: echo '::set-output name=boing::"hello"'
         id: boing
-      - run: echo $thing
+      - run: |
+          echo $thing
+          echo $other
         env: 
           thing: ${{ format("hello there {0}", steps.boing.outputs.boing) }}
+          other: 'hello there ${{ steps.boing.outputs.boing }}'
 #      - name: Checkout
 #        uses: actions/checkout@v1
 #      - name: Install Dependencies

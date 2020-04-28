@@ -55,6 +55,6 @@ jobs:
           repo: 'jkrsp'
           owner: ${{ github.repository_owner }}
           issue_number: ${{ github.event.pull_request.number }}
-          body: '[Review website here](${{ steps.website.outputs.url }}'
+          body: ${{ format('[Review website here]({0})', steps.website.outputs.url) }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
