@@ -1,0 +1,35 @@
+on:
+  pull_request:
+    types: [closed]
+
+name: Destroy PR Env
+jobs:
+  destroy_pr_env:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      BRANCH_NAME: ${{ github.head_ref }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          ref: ${{ github.head_ref }}
+      - name: 'Terraform Init'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'init'
+          args: '-backend-config="key=${{ env.BRANCH_NAME }}.jkrsp.com.tfstate"'
+      - name: 'Terraform Destroy'
+        uses: hashicorp/terraform-github-actions@master
+        with:
+          tf_actions_version: 0.12.13
+          tf_actions_subcommand: 'destroy'
+          args: '-var="is_temp_env=true" -var="env_prefix=${{ env.BRANCH_NAME }}."'
+      - name: Tell PR that we have destroyed the thing
+        uses: thollander/actions-comment-pull-request@master
+        with:
+          message: 'Temporary environment now destroyed'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
