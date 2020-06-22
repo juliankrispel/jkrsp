@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@babel/compat-data": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
     "gatsby": "^2.19.45",
     "gatsby-image": "^2.2.44",
     "gatsby-plugin-dark-mode": "^1.1.1",
