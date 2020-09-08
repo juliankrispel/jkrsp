@@ -1,6 +1,6 @@
 ---
 title: How to build a full stack serverless app with Terraform, Appsync and React
-date: "2020-08-21:00:00.284Z"
+date: "2020-05-13T16:00:00.284Z"
 description: How to build a full stack serverless app with Terraform, Appsync and React
 draft: true
 ---
