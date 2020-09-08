@@ -5,7 +5,7 @@ description: Automating browser tests with jest, github actions and puppeteer
 draft: false
 ---
 
-In this tutorial I'll show you how to add automated browser testing to your workflow within minutes. Step by step, using github actions, jest and puppeteer. In this case we'll be testing a react app but that you can easily adjust the steps to use any other kind of frontend framework (or none at all).
+In this tutorial I'll show you how to add automated browser testing to your workflow within minutes. Step by step, using github actions, jest and puppeteer. In this case we'll be testing a react app but you can easily adjust the steps to use any other kind of frontend framework (or none at all).
 
 ## Why automated browser testing?
 I think it's reasonable to ask yourself this question: Do you really need to write and maintain automated browser tests? Although the open source tools have matured over the last decade it is still a significant burden on any engineering team to do this well - hence why there is an army of QA Engineers and SaaS products out there. I won't go into depth here but think about the tradeoffs and whether this investment is worth it. 
