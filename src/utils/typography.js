@@ -18,10 +18,10 @@ const typography = new Typography({
       ],
     },
   ],
-  headerFontFamily: ['Roboto Slab'],
+  headerFontFamily: ['Lato'],
   bodyFontFamily: ['Lato'],
-  baseFontSize: 18,
-  baseLineHeight: 1.6,
+  baseFontSize: 20,
+  baseLineHeight: 1.65,
 })
 
 
