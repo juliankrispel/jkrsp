@@ -43,15 +43,15 @@ const Bio = () => {
         marginBottom: rhythm(1),
       }}
     >
-      <h3>Hi 👋 I'm Julian  </h3>
+      <h3>👋 I'm Julian  </h3>
       <p>
-        I build serverless apps/systems for startups and mid-range companies.<br/>
+        I design and build serverless applications for startups.<br/>
         ✔ <strong>Fixed price projects</strong> - Know the full cost upfront.<br/>
         ✔ <strong>Fast turnaround times</strong> - Get a prototype within weeks.<br/>
         ✔ <strong>100% Serverless</strong> - Own a low cost system that scales with your business.<br/>
         ✔ <strong>Complete Service</strong> - From Frontend to Devops.<br/>
       </p>
-      <p><Cta href="https://calendly.com/jkrsp/initial-consultation"><strong>Let's chat!</strong></Cta></p>
+      <p>Want to talk about a project? <Cta href="https://calendly.com/jkrsp/initial-consultation">Book a 30m chat</Cta> or fill out <Cta style={{transform: 'rotate(-2deg)'}} href="https://julian112414.typeform.com/to/uCNe00jk">the project form</Cta> and I'll get back to you</p>
     </div>
   )
 }

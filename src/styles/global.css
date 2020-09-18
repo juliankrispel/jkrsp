@@ -80,14 +80,11 @@ article {
 }
 
 .cta {
-  /*
-  background: var(--textNormal);
-  padding: .3em;
-  box-shadow: 1px 1px 1px var(--textNormal);
-  */
+  margin: 0 .5em;
   font-size: .8em;
   background: var(--textNormal);
   text-align: right;
+  font-weight: bold;
   color: var(--bg);
   display: inline-block;
   border-radius: 3px;
