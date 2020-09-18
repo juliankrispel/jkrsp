@@ -8,6 +8,7 @@ body {
   --textLink: #1a1b23;
   --logo: #333;
   --hr: hsla(0, 0%, 0%, 0.2);
+  --cta: #ffe7bc;
 
   background-color: var(--bg);
 }
@@ -21,6 +22,7 @@ body.dark {
   --textTitle: white;
   --textLink: white;
   --hr: hsla(0, 0%, 100%, 0.2);
+  --cta: #000;
 }
 
 .light-switch input{
@@ -75,4 +77,22 @@ header {
 
 article {
   padding-bottom: 1em;
+}
+
+.cta {
+  /*
+  background: var(--textNormal);
+  padding: .3em;
+  box-shadow: 1px 1px 1px var(--textNormal);
+  */
+  font-size: .8em;
+  background: var(--textNormal);
+  text-align: right;
+  color: var(--bg);
+  display: inline-block;
+  border-radius: 3px;
+  padding: .5em .8em;
+  text-decoration: none;
+  transform: rotate(2deg);
+  line-height: 1em;
 }

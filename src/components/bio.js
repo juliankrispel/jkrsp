@@ -8,6 +8,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
+import Cta from './Cta'
 import { rhythm } from "../utils/typography"
 
 const Bio = () => {
@@ -44,13 +45,13 @@ const Bio = () => {
     >
       <h3>Hi 👋 I'm Julian  </h3>
       <p>
-        I build fullstack apps/systems for startups and mid-range companies.<br/>
-        💵 <strong>Fixed price projects</strong> - Know the full cost upfront.<br/>
-        ⏰ <strong>Fast turnaround times</strong> - Get a prototype within weeks.<br/>
-        📈 <strong>100% Serverless</strong> - Own a low cost system that scales with your business.<br/>
-        ☯ <strong>Complete Service</strong> - From Frontend to Devops, I've got you covered.<br/>
+        I build serverless apps/systems for startups and mid-range companies.<br/>
+        ✔ <strong>Fixed price projects</strong> - Know the full cost upfront.<br/>
+        ✔ <strong>Fast turnaround times</strong> - Get a prototype within weeks.<br/>
+        ✔ <strong>100% Serverless</strong> - Own a low cost system that scales with your business.<br/>
+        ✔ <strong>Complete Service</strong> - From Frontend to Devops.<br/>
       </p>
-      <p>Interested? <a href="https://calendly.com/jkrsp/initial-consultation">Book a free initial consultation</a></p>
+      <p><Cta href="https://calendly.com/jkrsp/initial-consultation"><strong>Let's chat!</strong></Cta></p>
     </div>
   )
 }
