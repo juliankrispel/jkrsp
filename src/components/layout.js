@@ -65,6 +65,19 @@ const Layout = ({ location, title, children }) => {
 
       <header>{header}</header>
       <main>{children}</main>
+      <footer>
+      <br />
+      <small><a href={`https://twitter.com/juliandoesstuff`}>
+        Twitter
+      </a>,{' '}
+      <a href={`http://github.com/juliankrispel`}>
+        Github
+      </a>,{' '}
+      <a href={`https://www.linkedin.com/in/julian-krispel-67487a1b/`}>
+        LinkedIn
+      </a></small>
+
+      </footer>
     </div>
   )
 }
