@@ -2,7 +2,7 @@
 title: Writing terraform with typescript
 date: "2020-09-20T18:00:00.284Z"
 description: In this blogpost I'll go over how to deploy a lambda function with the terraform new cdk.
-draft: falset
+draft: false
 ---
 
 You may or may not have heard about the release of the [terraform cdk](https://github.com/hashicorp/terraform-cdk) (short for cloud development kit). It's HashiCorps answer to the aws cdk. In the words of the projects readme:
