@@ -18,7 +18,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
     meta = [
       {
         property: "og:image",
-        content: siteUrl + image.src,
+        content: `${siteUrl}${image.src}`,
       },
       {
         property: "og:image:width",
