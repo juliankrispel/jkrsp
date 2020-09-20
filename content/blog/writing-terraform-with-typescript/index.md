@@ -2,6 +2,7 @@
 title: Writing terraform with typescript
 date: "2020-09-20T18:00:00.284Z"
 description: In this blogpost I'll go over how to deploy a lambda function with the terraform new cdk.
+image: cover.png
 draft: false
 ---
 
@@ -12,6 +13,8 @@ You may or may not have heard about the release of the [terraform cdk](https://g
 Let's try this out shall we?
 
 To get the full developer experience, make sure you have [typescript support installed for your IDE](https://github.com/Microsoft/TypeScript/wiki/TypeScript-Editor-Support)
+
+![autocomplete-terraform](cover.png)
 
 ### Generating the boilerplate
 

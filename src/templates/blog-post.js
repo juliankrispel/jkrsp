@@ -13,6 +13,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const { previous, next } = pageContext
   const image = post.frontmatter.image != null && post.frontmatter.image.childImageSharp.resize
   let meta = []
+
   if (image != null) {
     meta = [
       {
