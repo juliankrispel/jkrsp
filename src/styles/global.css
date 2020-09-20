@@ -93,3 +93,16 @@ article {
   transform: rotate(2deg);
   line-height: 1em;
 }
+
+blockquote {
+  position: relative;
+}
+
+blockquote:before {
+  content: '\201C';
+  display: block;
+  position: absolute;
+  top: -.8rem;
+  font-size: 3em;
+  left: -1.6rem;
+}
