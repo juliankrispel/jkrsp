@@ -75,8 +75,9 @@ const Layout = ({ location, title, children }) => {
       </a>,{' '}
       <a href={`https://www.linkedin.com/in/julian-krispel-67487a1b/`}>
         LinkedIn
+      </a>, <a href="/rss.xml">
+        RSS
       </a></small>
-
       </footer>
     </div>
   )
