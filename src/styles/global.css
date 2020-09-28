@@ -6,7 +6,7 @@ body {
   --textNormal: #333;
   --textTitle: #333;
   --textLink: #1a1b23;
-  --logo: #333;
+  --logo: #000;
   --hr: hsla(0, 0%, 0%, 0.2);
   --cta: #ffe7bc;
 
@@ -74,7 +74,7 @@ hr {
 }
 
 .logo path {
-  fill: var(--textNormal);
+  fill: var(--logo);
   stroke: none;
 }
 
