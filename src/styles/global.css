@@ -11,6 +11,12 @@ body {
   --cta: #ffe7bc;
 
   background-color: var(--bg);
+
+  max-width: 1300px;
+  margin: auto;
+  display: block;
+  position: relative;
+
 }
 
 body.dark {
@@ -37,7 +43,7 @@ body.dark {
   cursor: pointer;
   margin: 0;
   text-align: center;
-  position: absolute;
+  position: fixed;
   right: 5px;
   top: 5px;
 
@@ -61,14 +67,36 @@ hr {
 }
 
 .logo {
-  font-family: 'Roboto Slab';
-  font-size: 1.5em;
-  display: inline-block;
-  transform: rotate(-90deg);
-  padding: 0;
-  margin-top: -2em;
-  padding-bottom: 2em;
+  position: absolute;
+  top: 2em;
+  left: 2em;
+  width: 150px;
 }
+
+.logo path {
+  fill: var(--textNormal);
+  stroke: none;
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    margin-left: 0;
+    left: 1.5em;
+    width: 90px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .logo {
+    position: relative;
+    left: 0;
+    margin-left: 0;
+    right: auto;
+    margin: -1em 0 2em 0;
+  }
+}
+
+
 
 header {
   padding-top: 0;

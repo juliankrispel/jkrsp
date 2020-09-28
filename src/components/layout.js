@@ -4,6 +4,7 @@ import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 import { rhythm, scale } from "../utils/typography"
 import '../styles/global.css'
+import Logo from './logo'
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -11,31 +12,21 @@ const Layout = ({ location, title, children }) => {
 
   if (location.pathname === rootPath) {
     header = (
-      <h1 className="logo">
+      <h1>
         <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
           to={`/`}
         >
-          {title}
+          <Logo />
         </Link>
       </h1>
     )
   } else {
     header = (
-      <h3 className="logo">
+      <h3>
         <Link
-          style={{
-            boxShadow: `none`,
-            textDecoration: `none`,
-            color: `inherit`,
-          }}
           to={`/`}
         >
-          {title}
+          <Logo />
         </Link>
       </h3>
     )
