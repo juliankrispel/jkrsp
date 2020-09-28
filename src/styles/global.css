@@ -6,6 +6,7 @@ body {
   --textNormal: #333;
   --textTitle: #333;
   --textLink: #1a1b23;
+  --bg-code: #f0f0f0;
   --logo: #000;
   --hr: hsla(0, 0%, 0%, 0.2);
   --cta: #ffe7bc;
@@ -23,6 +24,7 @@ body.dark {
   -webkit-font-smoothing: antialiased;
 
   --bg: #1a1b23;
+  --bg-code: #000;
   --logo: #fff;
   --textNormal: rgba(255, 255, 255, 0.88);
   --textTitle: white;
@@ -146,4 +148,37 @@ blockquote:before {
   top: -.8rem;
   font-size: 3em;
   left: -1.6rem;
+}
+
+:not(pre) > code[class*="language-"], pre[class*="language-"] {
+  background: var(--bg-code);
+  color: var(--logo);
+  padding: .2em 0.3em;
+  border-radius: 2px;
+  text-shadow: none;
+  font-size: 0.85em;
+  line-height: .9em;
+}
+
+pre[class*="language-"] {
+  background: var(--bg-code);
+  color: var(--logo);
+  border-radius: 3px;
+  font-size: 0.85em;
+  line-height: .9em;
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+
+
+pre[class*="language-"] code {
+  background: none;
+  color: var(--logo);
+  text-shadow: none;
+}
+
+
+pre[class*="language-"] .operator {
+  background: none;
 }
