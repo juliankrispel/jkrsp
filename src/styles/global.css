@@ -71,10 +71,23 @@ hr {
   top: 2em;
   left: 2em;
   width: 150px;
+  background: #fff;
+  border-radius: 2px;
+  transform: rotate(-2deg);
+  padding: .2em;
+  transition: 300ms;
+}
+
+.logo:hover {
+  transform: rotate(1deg) scale(1.1);
+}
+
+body.dark .logo{
+  box-shadow: 3px 3px 3px #000;
 }
 
 .logo path {
-  fill: var(--logo);
+  fill: #000;
   stroke: none;
 }
 
