@@ -58,7 +58,9 @@ variable "env_prefix" { }
 variable "is_temp_env" {
   default = false
 }
-``What do you think guys?
+```
+
+What do you think guys?
 
 Wouldn't it be awesome if everyone got access to aws playground so we can get people involved and potentially excited about it :tada:  `
 
