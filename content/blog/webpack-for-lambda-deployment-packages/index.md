@@ -2,7 +2,7 @@
 title: Writing AWS Lambda functions with Typescript and Webpack
 date: "2020-09-28"
 description: Writing AWS Lambda with Typescript and Webpack
-image: webpack.png
+image: webpack-and-typescript.png
 draft: false
 ---
 
