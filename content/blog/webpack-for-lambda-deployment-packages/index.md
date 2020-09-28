@@ -2,10 +2,13 @@
 title: Writing AWS Lambda functions with Typescript and Webpack
 date: "2020-09-28"
 description: Writing AWS Lambda with Typescript and Webpack
+image: webpack.png
 draft: false
 ---
 
 Whether you use terraform, the terraform cdk or the aws cdk, you still need to compile your source code and make them into lambda deployment packages. In this blogpost I go through how my setup for writing and compiling lambdas looks like.
+
+![webpack](webpack-and-typescript.png) 
 
 ## What's a lambda deployment package
 
