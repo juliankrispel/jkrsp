@@ -5,8 +5,11 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
+import { resolve } from 'path'
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const BlogPostTemplate = (props) => {
+  const { fields, data, pageContext, location } = props
+  console.log({ props }, props.data.directory.absolutePath, props.data.markdownRemark.fileAbsolutePath)
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const siteUrl = data.site.siteMetadata.siteUrl
@@ -114,7 +117,12 @@ export const pageQuery = graphql`
         title
       }
     }
+    directory{
+      absolutePath
+      relativePath
+    }
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      fileAbsolutePath
       id
       excerpt(pruneLength: 160)
       html

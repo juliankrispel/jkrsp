@@ -1,5 +1,6 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const util = require('util')
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -51,8 +52,14 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+exports.onCreateNode = (props) => {
+  const { node, actions, getNode } = props
   const { createNodeField } = actions
+  console.log(props)
+//  if (node != null) {
+//    console.log(path.relative(process.cwd(), node.fileAbsolutePath))
+//
+//  }
 
   if (node.frontmatter != null) {
     const visible = !node.frontmatter.draft || process.env.NODE_ENV.toLowerCase() === 'development'
