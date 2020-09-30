@@ -137,9 +137,14 @@ article {
   line-height: 1em;
 }
 
+body.dark .cta {
+  color: var(--cta);
+}
+
 .cta:hover {
   box-shadow: inset 0 -1.4em 0 var(--cta);
   margin-bottom: 2px;
+  color: #000 !important;
   padding: .2em .2em;
   margin-top: -2px
 }
