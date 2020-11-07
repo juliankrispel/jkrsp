@@ -13,7 +13,6 @@ async function run() {
       body: `[Review website here](${website_link.replace(/"/gs, '')})`
     });
 
-    console.log('created comment', data);
   } catch (err) {
     throw err
   }

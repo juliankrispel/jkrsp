@@ -2,9 +2,11 @@
 title: Runtime type-checking of lambda events with typescript
 date: "2020-11-07T14:00:00.284Z"
 description: Runtime type-checking of lambda events with typescript
-image: typecheck.png
+image: typecheck-cover.png
 draft: false
 ---
+
+![simple runtime check](typecheck-cover.png)
 
 [typescript-is](https://github.com/woutervh-/typescript-is) is a library that enables you to perform runtime type checks in with typescript with just one line of code. 
 
