@@ -1,7 +1,7 @@
 ---
-title: Validating cloud-function input with a single line of code
+title: Runtime type-checking of lambda events with typescript
 date: "2020-11-07T14:00:00.284Z"
-description: Validating cloud-function input with a single line of code
+description: Runtime type-checking of lambda events with typescript
 draft: false
 ---
 
