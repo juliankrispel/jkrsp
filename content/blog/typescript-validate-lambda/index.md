@@ -2,6 +2,7 @@
 title: Runtime type-checking of lambda events with typescript
 date: "2020-11-07T14:00:00.284Z"
 description: Runtime type-checking of lambda events with typescript
+image: typecheck.png
 draft: false
 ---
 
