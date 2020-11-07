@@ -1,7 +1,7 @@
 ---
-title: Event Sourcing in Credit
+title: Event based systems in FinTech
 date: "2020-05-12T18:00:00.284Z"
-description: Event Sourcing in Credit
+description: Event based systems in FinTech
 draft: true
 ---
 
