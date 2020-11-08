@@ -46,7 +46,8 @@ const Bio = () => {
     >
       <div>
         <p>
-          I build <strong>full-stack serverless applications on AWS</strong> for businesses and start-ups. <br />Please fill out <Cta href="https://julian112414.typeform.com/to/uCNe00jk">the project form</Cta> or <Cta href="https://calendly.com/jkrsp/initial-consultation">book a 30m chat</Cta> if you'd like to talk about a project.
+          I build <strong>full-stack serverless applications on AWS</strong> for businesses and start-ups.
+          <br />Want to talk shop? Fill out <Cta href="https://julian112414.typeform.com/to/uCNe00jk">the questionaire</Cta> or <Cta href="https://calendly.com/jkrsp/initial-consultation">book a slot</Cta> and I'll get back to you.
         </p>
       </div>
     </div>
