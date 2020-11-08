@@ -45,4 +45,6 @@ async function handler<Handler>(event: MyEvent) {
 exports.handler = handler
 ```
 
-For a fully working example of this pattern including deployment scripts for AWS and compilation with webpack please have a [look at my boilerplate](https://github.com/juliankrispel/typescript-aws-lambda-terraform).
+🚀
+
+For a fully working example of this pattern including deployment scripts for AWS and compilation with webpack please have a [look at this boilerplate I've put together](https://github.com/juliankrispel/typescript-aws-lambda-terraform).

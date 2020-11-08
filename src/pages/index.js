@@ -13,6 +13,8 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Fullstack Serverless Engineer - Julian Krispel-Samsel" />
+
+      <h3>👋 I'm Julian </h3>
       <Bio />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
