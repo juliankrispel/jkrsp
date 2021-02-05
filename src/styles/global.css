@@ -189,8 +189,6 @@ pre[class*="language-"] {
   margin-bottom: 2em;
 }
 
-
-
 pre[class*="language-"] code {
   background: none;
   color: var(--logo);
