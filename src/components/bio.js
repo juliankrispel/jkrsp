@@ -15,10 +15,10 @@ import Logo from './logo'
 const Bio = () => {
   const data = useStaticQuery(graphql`
     query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
+      email: file(absolutePath: { regex: "/email.png/" }) {
         childImageSharp {
-          fixed(width: 50, height: 50) {
-            ...GatsbyImageSharpFixed
+          fluid(maxWidth: 400) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
@@ -36,6 +36,7 @@ const Bio = () => {
     }
   `)
 
+  console.log(data)
   const { author, social } = data.site.siteMetadata
   return (
     <div
@@ -47,7 +48,9 @@ const Bio = () => {
       <div>
         <p>
           I build <strong>full-stack serverless applications on AWS</strong> for businesses and start-ups.
-          <br />Want to talk shop? Fill out <Cta href="https://julian112414.typeform.com/to/uCNe00jk">the questionaire</Cta> or <Cta href="https://calendly.com/jkrsp/initial-consultation">book a slot</Cta> and I'll get back to you.
+          <br />Want to talk shop?
+          <br/> <Cta href="https://calendly.com/jkrsp/initial-consultation">Book a meeting</Cta> me or email me and we'll take it from there:
+          <img className="email-img" src={data.email.childImageSharp.fluid.src} />
         </p>
       </div>
     </div>

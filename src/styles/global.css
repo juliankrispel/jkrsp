@@ -201,3 +201,12 @@ pre[class*="language-"] code {
 pre[class*="language-"] .operator {
   background: none;
 }
+
+.email-img {
+  max-width: 200px;
+  display: inline-block;
+  vertical-align: middle;
+  transform: rotate(2deg);
+  margin-left: 1em;
+  border-radius: 3px;
+}
