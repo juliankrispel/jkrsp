@@ -48,7 +48,7 @@ const Bio = () => {
       <div>
         <p>
           I build <strong>text editors with react</strong> and <strong>full-stack serverless applications on AWS</strong>.
-          <br />Want to talk shop?
+          <br />Want to talk about a project?
           <br/> <Cta href="https://calendly.com/jkrsp/first-chat">Book a meeting</Cta> or email me and we'll take it from there:
           <img className="email-img" src={data.email.childImageSharp.fluid.src} />
         </p>
