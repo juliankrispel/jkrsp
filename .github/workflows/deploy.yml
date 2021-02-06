@@ -6,15 +6,17 @@ name: Deploy Gatsby Site
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      ENV_PREFIX: ''
     strategy:
       matrix:
         node-version: [12.x]
 
     steps:
+      - name: Configure AW0S credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
       - name: Checkout
         uses: actions/checkout@v1
       - name: Get yarn cache directory path
@@ -50,7 +52,6 @@ jobs:
           tf_actions_version: 0.12.13
           tf_actions_subcommand: 'apply'
           args: 'tf.plan'
-      - uses: chrislennon/action-aws-cli@v1.1
       - name: sync to s3
         run: aws s3 sync public s3://jkrsp.com
       - name: invalidate cloudfront cache
