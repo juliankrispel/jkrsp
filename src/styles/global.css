@@ -203,10 +203,22 @@ pre[class*="language-"] .operator {
 .email-img {
   max-width: 200px;
   display: inline-block;
-  float: right;
+  height: auto;
   vertical-align: middle;
   transform: rotate(-4deg);
-  margin-right: -4em;
-  margin-left: 1em;
+  margin-right: -5em;
   border-radius: 3px;
+  align-self: center;
+}
+
+
+@media (max-width: 1000px) {
+  .email-img {
+    margin-right: 0;
+  }
+}
+
+.email-action {
+  display: flex;
+  align-content: center;
 }

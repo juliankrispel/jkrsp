@@ -41,17 +41,19 @@ const Bio = () => {
   return (
     <div
       style={{
-        marginBottom: rhythm(2),
+        marginBottom: rhythm(1),
       }}
     >
       <div>
         <p>
           I build <strong>text editors with react</strong> and <strong>full-stack serverless applications on AWS</strong>.
         </p>
-        <p>
-          Got a project? <Cta href="https://calendly.com/jkrsp/first-chat">Book a meeting</Cta> or email me and we'll take it from there
+        <div className="email-action">
+          <p>
+            Got a project? <Cta href="https://calendly.com/jkrsp/first-chat">Book a meeting</Cta> or email me and we'll take it from there
+          </p>
           <img className="email-img" src={data.email.childImageSharp.fluid.src} />
-        </p>
+        </div>
       </div>
     </div>
   )
