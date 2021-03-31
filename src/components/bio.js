@@ -50,9 +50,9 @@ const Bio = () => {
         </p>
         <div className="email-action">
           <p>
-            Got a project? <Cta href="https://calendly.com/jkrsp/first-chat">Book a meeting</Cta> or email me and we'll take it from there
+            Got a project? <Cta href="https://calendly.com/jkrsp/first-chat">Book a meeting</Cta> or email me and we'll take it from there: <br />
+            <em>julian [at] jkrsp [dot] com</em>
           </p>
-          <img className="email-img" src={data.email.childImageSharp.fluid.src} />
         </div>
       </div>
     </div>

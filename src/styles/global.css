@@ -73,7 +73,6 @@ hr {
   top: 2em;
   left: 2em;
   width: 150px;
-  background: #fff;
   border-radius: 2px;
   transform: rotate(-2deg);
   padding: .2em;
@@ -85,6 +84,7 @@ hr {
 }
 
 body.dark .logo{
+  background: hsl(223deg 22% 64%);
   box-shadow: 3px 3px 3px #000;
 }
 
@@ -96,7 +96,7 @@ body.dark .logo{
 @media (max-width: 1200px) {
   .logo {
     margin-left: 0;
-    left: 1.5em;
+    left: 1em;
     width: 90px;
   }
 }
@@ -206,7 +206,7 @@ pre[class*="language-"] .operator {
   height: auto;
   vertical-align: middle;
   transform: rotate(-4deg);
-  margin-right: -5em;
+  margin-right: -3em;
   border-radius: 3px;
   align-self: center;
 }
