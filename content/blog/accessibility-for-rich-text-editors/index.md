@@ -21,13 +21,23 @@ All of the below recommendations become more obvious if you put yourself into yo
 
 ### 2. Use alt text for your images
 
-This 
+If you're rendering image blocks in your editor, use alt attribute to represent what the image contains to a screen reader.
+Consider enabling users to configure the alt attribute.
 
 ### 3. Use aria labels for icon buttons
 
+If you're using icon buttons label the buttons. Here's a react example:
+
+```tsx
+<button aria-label="Add block">
+  <PlusIcon />
+</button>
+```
+
 ### 4. role=textbox
 
-### 5. Floating menus are hard to make accessible
+
+### 5. Floating menus are harder to make accessible
 
 ### 6. Use linting for a good accessibilty baseline
 

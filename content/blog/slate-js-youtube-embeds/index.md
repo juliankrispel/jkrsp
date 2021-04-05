@@ -1,13 +1,13 @@
 ---
 title: Embedding youtube videos in rich text documents with slate js
-date: "2021-05-12T18:00:00.284Z"
+date: "2021-04-05T17:00:00.284Z"
 description: Embedding youtube videos in rich text documents with slate js
-draft: true
+draft: false
 ---
 
 Embedding media such as youtube or vimeo links in a rich text document is a very common feature in rich text editors (in my case, it's an often requested feature by clients).
 
-In this post I'll go through a pattern that I see used across projects: "Rendering embedded media in iframes". In this case it's a youtube video, but it could really be anything.
+In this post I'll go through a pattern that I see used across projects, which is to __render embedded media in iframes__. In this case it's a youtube video, but it could really be anything, like a tweet for example.
 
 The finished [example is available at](https://github.com/juliankrispel/slate-patterns/blob/master/src/iframe-elements/iframe-elements.tsx)
 
@@ -15,7 +15,7 @@ Let's get started
 
 ### 1. Setup
 
-At the time of writing, I'm `0.59`, make sure you're using this version or higher to ensure nothing breaks.
+At the time of writing, I'm using __slate__ version `^0.59`, make sure you're using this version to ensure nothing breaks (currently version `^0.60` is actually broken)
 
 If you don't have a react app already, please use `create-react-app` (or something similar) to get started. I always include typescript for my projects but this is entirely optional.
 
@@ -54,9 +54,9 @@ export function MyEditor()  {
 }
 ```
 
-### 2. Adding a youtube element
+### 2. Add a slate element for youtube embeds
 
-One of the three __fundamental__ building blocks of a slate document are Block Elements. In it's simplest form Block Elements are lines of text (or paragraphs), but they can also be non-text elements. All block elements are derived from this shape:
+One of the three __fundamental__ building blocks of a slate document are __Block Elements__. In their simplest form Block Elements are lines of text (or paragraphs), but they can also be non-text elements. All block elements are derived from this shape:
 
 ```tsx
 {
@@ -78,7 +78,7 @@ To create our youtube element we add our own properties to this element. Youtube
 }
 ```
 
-Let's update our default value to include a block like this. However, this won't render an iframe, let's look at that next ⬇
+Update your default slate value to include this block. Next, we'll tackle rendering this element  ⬇
 
 ### 3. Rendering embeddable elements
 
@@ -106,9 +106,9 @@ In order to render the iframe we need to define the aptly named [`renderElement`
 />
 ```
 
-If you've followed the steps so far, you should now see a youtube embed appear in your editor. Let's break down what's happening in this `renderElement` in the above code:
+If you've followed the steps so far, you should now see a youtube embed appear in your editor. Let's break down what's happening with our `renderElement` method as shown above.
 
-- In our `renderElement` prop we check if the type of element is `'youtube'` and if it is, we render our iframe. We construct the iframe src attribute by concatenating youtube's embed url with  with the video id.
+- In our `renderElement` method we check if the type of element is `'youtube'` and if it is, we render our iframe. We construct the iframe src attribute by concatenating youtube's embed url with  with the video id.
 - Our `renderElement` callback must always render the `children` prop as well as the element `attributes` which can be spread over a html element (Otherwise slate.js will error when you try to interact with the element).
 - If the element type isn't `'youtube'` the `renderElement` prop renders a paragraph by default. Slate will use the `renderElement` method to render every `element` in your document.
 - For non-text elements, we need to add `contentEditable={false}` to prevent the browser from adding a cursor to our content.
@@ -138,9 +138,7 @@ Now we're rendering and handling this block correctly, but how does a user actua
 
 ### 5. Inserting youtube blocks
 
-To insert youtube blocks, we need to use slate's [`Transforms` library](https://docs.slatejs.org/api/transforms), in particular, the `insertNodes` method.
-
-This should do it:
+To insert an element - we use slate's [`Transforms` library](https://docs.slatejs.org/api/transforms), in particular, the `insertNodes` method:
 
 ```tsx
 Transforms.insertNodes([{
@@ -155,7 +153,6 @@ Transforms.insertNodes([{
 However we still need the user interaction for input. Let's add an `onPaste` prop to our Editable component for this.
 
 ```tsx
-
 <Editable
   onPaste={(event) => {
     const pastedText = event.clipboardData?.getData('text')?.trim()
@@ -181,7 +178,7 @@ However we still need the user interaction for input. Let's add an `onPaste` pro
 
 Let's break this down:
 
-First we need to retrieve the text we pasted:
+First we retrieve the text we pasted:
 
 ```tsx
 const pastedText = event.clipboardData?.getData('text')?.trim()
@@ -191,4 +188,4 @@ To test if our pasted url is a youtube url and to capture the id from the url we
 
 If the regex matches we call `event.preventDefault()` to prevent the pasted text from being inserted as text. Instead we insert a slate element of type `'youtube'` and with a video id. Now we can embed youtube videos in our document by simply pasting the link, anywhere.
 
-That's it. I hope you enjoyed this tutorial.
+That's it, I hope you enjoyed this tutorial. If you have questions or an idea of what you'd like me to cover in my next tutorial, reach out on twitter - I'm always happy to hear from the community!
