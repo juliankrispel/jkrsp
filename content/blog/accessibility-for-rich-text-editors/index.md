@@ -46,3 +46,9 @@ For react users, the [a11y-jsx eslint plugin](https://www.npmjs.com/package/esli
 ### 7. Use an accessible component library for building menu components
 
 Build on established component libraries. [Reach.ui](https://reach.tech/), [material ui](https://material-ui.com/) and [chakra](https://chakra-ui.com/) are all react libraries that have good accessibility defaults. 
+
+### 8. Notify screen readers when content changes
+
+If your rich text editor implements collaborative editing the content of your document may change without direct user-action.
+
+### 9. Ensure that tabbable

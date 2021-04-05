@@ -5,13 +5,15 @@ description: Embedding youtube videos in rich text documents with slate js
 draft: false
 ---
 
+![Youtube app on iphone](youtube-embed.jpg)
+
 Embedding media such as youtube or vimeo links in a rich text document is a very common feature in rich text editors (in my case, it's an often requested feature by clients).
 
 In this post I'll go through a pattern that I see used across projects, which is to __render embedded media in iframes__. In this case it's a youtube video, but it could really be anything, like a tweet for example.
 
-The finished [example is available at](https://github.com/juliankrispel/slate-patterns/blob/master/src/iframe-elements/iframe-elements.tsx)
+The finished [example is available here](https://github.com/juliankrispel/slate-patterns/blob/master/src/iframe-elements/iframe-elements.tsx)
 
-Let's get started
+Okay, let's get started ⬇️
 
 ### 1. Setup
 
