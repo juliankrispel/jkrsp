@@ -2,6 +2,7 @@
 title: Embedding youtube videos in rich text documents with slate js
 date: "2021-04-05T17:00:00.284Z"
 description: Embedding youtube videos in rich text documents with slate js
+image: youtube-embed.jpg
 draft: false
 ---
 
