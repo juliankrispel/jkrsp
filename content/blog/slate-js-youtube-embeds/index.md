@@ -5,7 +5,6 @@ description: Embedding youtube videos in rich text documents with slate js
 draft: true
 ---
 
-
 Embedding media such as youtube or vimeo links in a rich text document is a very common feature in rich text editors (in my case, it's an often requested feature by clients).
 
 In this post I'll go through a pattern that I see used across projects: "Rendering embedded media in iframes". In this case it's a youtube video, but it could really be anything.
