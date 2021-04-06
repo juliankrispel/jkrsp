@@ -51,4 +51,8 @@ Build on established component libraries. [Reach.ui](https://reach.tech/), [mate
 
 If your rich text editor implements collaborative editing the content of your document may change without direct user-action.
 
-### 9. Ensure that tabbable
+### 9. Ensure tabbable text selection menus
+
+### 10. Use title attribute for iframes
+
+Embedding content via iframes is a staple for rich text editors these days.
