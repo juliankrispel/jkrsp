@@ -6,17 +6,17 @@ draft: false
 image: image-of-keyboard.jpg
 ---
 
-If you're building an app that features a rich text editor - you should make them as accessible as possible for screen-readers.
+If you're building an app that features a rich text editor - you should make it as accessible as possible for screen-readers.
 
-The following is a list of 10 recommendations for building accessible rich text editors. Although most points will be applicable to any kind of library you use, some of them are specific to building editors with react.js.
+The following is a list of __10 recommendations for building accessible rich text editors__. Although most points will be applicable to any kind of library you use, some of them are specific to react.js.
 
 ### 1. Test with an actual screen reader
 
-If you have never used a screen reader, stop what you're doing and try to use your app or [any](https://docs.google.com/) app [with](https://medium.com/) that has a [rich text editor](https://www.notion.so/) with a screen reader. I'd consider this blog-post a success even if you don't come back to finish reading it.
+If you have never used a screen reader, try one out on your app or [any](https://docs.google.com/) app [with](https://medium.com/) that has a [rich text editor](https://www.notion.so/). I'd consider this blog-post a success even if you don't come back to finish reading it.
 
 - On __OSX__ you already have one built in to your operating system: [VoiceOver](https://support.apple.com/en-gb/guide/voiceover/welcome/mac).
-- For __Windows__ users there's [nvda](https://github.com/nvaccess/nvda)(free) which is overall the most popular screen reader.
-- A very popular screen reader is also [JAWS](https://www.freedomscientific.com/products/software/jaws/) (not free).
+- For __Windows__ users there's [nvda](https://github.com/nvaccess/nvda) (free) which is also the most widely used.
+- Another popular screen reader is [JAWS](https://www.freedomscientific.com/products/software/jaws/) (not free).
 
 All of the below recommendations become more obvious if you put yourself into your users shoes.
 
@@ -24,19 +24,19 @@ All of the below recommendations become more obvious if you put yourself into yo
 
 Overriding default keyboard behaviour to implement features such as hotkeys or indenting text via tab is a common pattern seen in web-based rich-text editors and IDEs.
 
-However, screen-reader users rely entirely on the keyboard to navigate your app, their browser and operating system. It is extremely frustrating if default keyboard functionality is prevented by an application and hard to overcome. If you are implementing such features, check they don't collide with hotkeys that are already in use for the browser or operating system.
+However, screen-reader users rely entirely on the keyboard to navigate your app, their browser and operating system. It is frustrating and hard to overcome if default keyboard functionality is prevented by an application. If you are implementing such features, check they don't collide with hotkeys that are already in use for the browsers or operating systems.
 
 ### 3. All interactive elements must be reachable via tab and/or arrow keys
 
 Most rich text editing applications make use of menus and toolbars, dynamically positioned or fixed in place.
 
-To ensure that elements are reachable via keyboard they need to be focusable. All interactive DOM elements are focusable by default (such as `button`, `input`, `select` or `textarea`). If you're using an element that isn't considered interactive (such as a `div`) you are required to add a `tabindex` and a `role` attribute so that the screen reader knows how to interact with the element.
+To ensure that elements are reachable via keyboard they need to be focusable. DOM elements such as `button`, `input`, `select` or `textarea` are focusable by default. If you're using an element that isn't considered interactive (such as a `div`) you are required to add a `tabindex` and a `role` attribute so that the screen reader knows how to interact with the element.
 
-Consider how much work it is for a keyboard-only user to navigate to these UI elements. This will depend on the position of this element in the DOM and how many other interactive elements are in between.
+Consider how much work it is for a keyboard-only user (the mouse is mostly useless for a user with sight-issues) to navigate to these UI elements. This will depend on the position of the element in the DOM and how many other interactive elements are in between.
 
-If you're building an editor with a floating toolbar (such as medium - which is completely inaccessible via tab keys btw) pay close attention to how a keyboard-only user can navigate to the buttons in this floating toolbar and how they can tab away from the toolbar and back to the editor once they interacted with it.
+If you're building an editor with a floating toolbar (such as medium - which is completely inaccessible via tab keys btw) pay close attention to how a keyboard-only user can navigate to and from these buttons and toolbar components.
 
-For complex usecases like the above you should consider programmatically moving focus, [more info on this here](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets#managing_focus_inside_groups)
+For complex usecases (if you have submenus or button groups) you should consider programmatically moving focus, [more info on this here](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Keyboard-navigable_JavaScript_widgets#managing_focus_inside_groups)
 
 ### 4. Use alt text for your images and make them configurable
 
@@ -63,7 +63,12 @@ These icons don't have textual meaning on their own, hence we need to tell the s
 If you're not using the semantic `button` element, you need to assign the [`tabindex` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex) (to make it tabbable) as well as the [`button` role](eb/Accessibility/ARIA/Roles/button_role) (to tell the screen reader that this is a button), see below:
 
 ```tsx
-<span aria-label="Bold" role="button" tabindex="0" onClick={makeTextBold}>
+<span
+  aria-label="Bold"
+  role="button"
+  tabindex="0"
+  onClick={makeTextBold}
+>
   <MyIcon>
 </span>
 ```
@@ -74,17 +79,17 @@ To make it easier to stay on top of your apps accessibility, a linter can go a l
 
 For react users, the [a11y-jsx eslint plugin](https://www.npmjs.com/package/eslint-plugin-jsx-a11y) will make you aware of what attributes you're missing to make your web-app accessible. I cannot overstate how valuable this is especially for teams.
 
-I recommend running your linter automatically (either as part of your CI or in a git hook).
+I recommend running your linter automatically (either as part of your CI or with a git hook).
 
-### 7. Use an accessible component library for building menu components
+### 7. Use an accessible component library
 
-Building on established component libraries will give you a leg-up on reaching a good accessibility baseline. [Reach.ui](https://reach.tech/), [material ui](https://material-ui.com/) and [chakra](https://chakra-ui.com/) are all react libraries that have good accessibility defaults.
+Using established component libraries will give you a leg-up on reaching a good accessibility baseline. [Reach.ui](https://reach.tech/), [material ui](https://material-ui.com/) and [chakra](https://chakra-ui.com/) are all react libraries that have decent accessibility defaults.
 
-### 8. Think twice about whether you need collaborative text editing
+### 8. Think twice about whether you need collaborative editing
 
 If your rich text editor has collaborative editing the content of a users document can change at the same time as you're editing it. The screen-reader needs to be notified that these updates occur, however these notifications must not be too noisy or distracting which can be a difficult balancing act.
 
-Although there are no out of the box solutions for this, a good reference is [googles live edits feature](https://workspaceupdates.googleblog.com/2019/08/real-time-collab-accessibility.html), providing a list of edits made by other users.
+Although there are no out of the box solutions for this, a good reference is [googles "Live Edit's" feature](https://workspaceupdates.googleblog.com/2019/08/real-time-collab-accessibility.html), providing a list of edits made by other users.
 
 Features such as this can be notoriously expensive to implement, test and maintain. My recommendation: Think twice about whether you actually need collaboration as part of your product before adding it to your roadmap.
 
