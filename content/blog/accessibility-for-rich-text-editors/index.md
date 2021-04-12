@@ -1,13 +1,14 @@
 ---
 title: 10 tips for building accessible rich text editors
-date: "2021-04-12T18:00:00.284Z"
+date: "2021-04-12T13:10:00.284Z"
 description: 10 tips for building accessible rich text editors
-draft: true
+draft: false
+image: image-of-keyboard.jpg
 ---
 
 If you're building an app that features a rich text editor - you should make them as accessible as possible for screen-readers.
 
-The following is a list of recommendations for building accessible rich text editors. Although most points will be applicable to any kind of library you use, some of them are specific to building editors with react.js.
+The following is a list of 10 recommendations for building accessible rich text editors. Although most points will be applicable to any kind of library you use, some of them are specific to building editors with react.js.
 
 ### 1. Test with an actual screen reader
 
