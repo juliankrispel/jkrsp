@@ -46,12 +46,16 @@ const Bio = () => {
     >
       <div>
         <p>
-          I build <strong>text editors with react</strong> and <strong>full-stack serverless applications on AWS</strong>.
+          I build <strong>text editing apps</strong> (like <a target="_blank" href="https://roamresearch.com/">Roam</a>,{' '}
+          <a target="_blank" href="https://www.notion.so/">Notion</a>,{' '}
+          <a target="_blank" href="https://docs.google.com/">Google Docs</a> or{' '}
+          <a target="_blank" href="https://paper.dropbox.com/">Paper</a>).{' '}
         </p>
         <div className="email-action">
           <p>
-            Got a project? <Cta href="https://calendly.com/jkrsp/first-chat">Book a meeting</Cta> or email me and we'll take it from there: <br />
-            <em>julian [at] jkrsp [dot] com</em>
+            For enquiries, please book <Cta href="https://calendly.com/jkrsp/first-chat">a meeting</Cta> or email me and we'll take it from there:
+            <br />
+            <strong>julian [at] jkrsp [dot] com</strong>
           </p>
         </div>
       </div>
