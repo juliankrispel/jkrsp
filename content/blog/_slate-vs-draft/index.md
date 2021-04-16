@@ -5,7 +5,6 @@ description: A comparison of slate.js and draft.js
 draft: true
 ---
 
-
 ### Size
 
 Draft.js: ~ 170kb incl deps
