@@ -5,10 +5,9 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
-import { resolve } from 'path'
 
 const BlogPostTemplate = (props) => {
-  const { fields, data, pageContext, location } = props
+  const { data, pageContext, location } = props
   console.log({ props }, props.data.directory.absolutePath, props.data.markdownRemark.fileAbsolutePath)
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
