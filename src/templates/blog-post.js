@@ -72,7 +72,7 @@ const BlogPostTemplate = (props) => {
           }}
         />
         <footer>
-          <h3>👋 Thanks for reading  </h3>
+          <h3>🙏  Thanks for reading</h3>
           <Bio />
         </footer>
       </article>
