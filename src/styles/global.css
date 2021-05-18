@@ -18,6 +18,7 @@ body {
   display: block;
   position: relative;
 
+  outline-color: var(--cta);
 }
 
 body.dark {
@@ -57,7 +58,6 @@ body.dark {
 
 a {
   color: var(--textLink);
-  outline: none;
 }
 
 a.anchor svg[aria-hidden="true"] {
@@ -71,7 +71,7 @@ hr {
 .logo {
   position: absolute;
   top: 2em;
-  left: 2em;
+  left: 1em;
   width: 150px;
   border-radius: 2px;
   transform: rotate(-2deg);

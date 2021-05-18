@@ -45,7 +45,7 @@ const Bio = () => {
     >
       <div>
         <p>
-          I build <strong>text editing interfaces</strong> (like <a target="_blank" href="https://roamresearch.com/">Roam</a>,{' '}
+          I build <strong>text editing interfaces</strong> for startups (think <a target="_blank" href="https://roamresearch.com/">Roam</a>,{' '}
           <a target="_blank" href="https://www.notion.so/">Notion</a>,{' '}
           <a target="_blank" href="https://docs.google.com/">Google Docs</a> or{' '}
           <a target="_blank" href="https://paper.dropbox.com/">Paper</a>).{' '}

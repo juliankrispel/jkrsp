@@ -55,7 +55,9 @@ const Layout = ({ location, title, children }) => {
       </ThemeToggler>
 
       <header>{header}</header>
-      <main>{children}</main>
+      <main>
+        {children}
+      </main>
       <footer>
       <br />
       <small><a href={`https://twitter.com/juliandoesstuff`}>
