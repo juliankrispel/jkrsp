@@ -1,16 +1,14 @@
 ---
 title: Slate js - How to render placeholders per line
-date: "2021-05-18T7:00:00.284Z"
+date: "2021-05-18T07:00:00.284Z"
 description: Slate js - How to render placeholders per line
-image: notion-placeholder.jpg
+image: notion-placeholder.png
 draft: false
 ---
 
-If you're building a text editing interface, there's a good chance you want to render a placeholder for empty lines/blocks to indicate something like this:
+If you're building a text editing interface, there's a good chance you want to render a placeholder for empty lines/blocks to indicate a keyboard shortcut. Here's how that looks in [notion]:
 
-![Notion placeholder](notion-placeholder)
-
-For context, this is a screenshot taken from [notion].
+![Notion placeholder](notion-placeholder.png)
 
 In this tutorial I'll show you how to do this using [Slate.js decorators].
 
