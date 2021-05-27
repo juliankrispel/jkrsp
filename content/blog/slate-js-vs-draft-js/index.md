@@ -1,7 +1,7 @@
 ---
 title: Slate.js vs Draft.js, a comparison
 date: "2021-05-27T09:30:00.284Z"
-description: Slate.js vs Draft.js, a comparison
+description: In this post we're comparing Slate.js and Draft.js, the two main react based text editing libraries.
 draft: false
 image: slate-vs-draft.jpeg
 ---
