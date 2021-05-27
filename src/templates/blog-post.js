@@ -34,6 +34,10 @@ const BlogPostTemplate = (props) => {
         name: "twitter:card",
         content: "summary_large_image",
       },
+      {
+        name: `twitter:image`,
+        content: `${siteUrl}${image.src}`,
+      },
     ]
   }
       
