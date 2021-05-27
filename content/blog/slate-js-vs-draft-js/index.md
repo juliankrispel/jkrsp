@@ -1,12 +1,12 @@
 ---
-title: Slate.js vs Draft.js, a comparison
+title: Slate.js vs Draft.js, a review
 date: "2021-05-27T09:30:00.284Z"
-description: In this post we're comparing Slate.js and Draft.js, the two main react based text editing libraries.
+description: In this post we're comparing Slate.js and Draft.js, two react based libraries for text editing.
 draft: false
 image: slate-vs-draft.jpeg
 ---
 
-You're building the next big text-editing interface and need a powerful library that integrates with react.
+You're building the next big text-editing / note-taking based startup and need a powerful library that integrates with react.
 
 A search that will most likely lead you to the inevitable fork in the road: Should you use [__Draft.js__](https://draftjs.org/) or [__Slate.js__](https://www.slatejs.org/)?
 
