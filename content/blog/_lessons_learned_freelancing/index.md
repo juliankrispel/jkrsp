@@ -75,11 +75,14 @@ The easiest path into freelancing is to try it out without leaving your job. Thi
 
 The likelihood is that they'd rather keep you than loose you to another company entirely. If they don't then they're not worth their salt anyway.
 
-## There is such thing as failure
+## Failure is not the end
 
-I've lost count of the amount of times I thought I had failed at freelancing or generally - at this career. One of my first clients
+I've lost count of the amount of times I thought I had failed at freelancing or generally - at this career.
 
-The last time I remember was when I went back to full-time employment. I had just
+- Failure is not a low follower count on twitter or that your tweets don't get seen enough.
+- Failure is not going back to full-time employment, just another opportunity for another attempt later on.
+- Failure is not having no clients for a month or two.
+- Failure is not being unable to achieve overnight success, you have to play the long game...
 
 ## Always play the long game
 
@@ -123,3 +126,4 @@ I'm no expert at this but there more than a few people online who can give excel
 ## Setting boundaries
 
 - 
+
