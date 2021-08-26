@@ -65,10 +65,8 @@ const Bio = () => {
         </p>
         <div className="email-action">
           <p>
-            Currently not available for new projects.
-            <br />
-            Always open{" "}
-            <Cta href="https://calendly.com/jkrsp/first-chat">for a chat 👋</Cta>.
+            Currently not available for new projects.  Always open{" "}
+            <Cta href="https://calendly.com/jkrsp/first-chat">for a chat</Cta>.
             <br />
             <strong>julian [at] jkrsp [dot] com</strong>
           </p>
