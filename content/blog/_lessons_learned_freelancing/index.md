@@ -10,7 +10,7 @@ __Software Engineering is booming 📈 and there's never been a better time to s
 
 Being in the middle of a pandemic you may think a move like this would be too risky.
 
-That's what I thought when I transitioned from full time employment to __working for myself__ earlier this year - for the second time in my ~12 year career as a Software Engineer.
+That's what I thought when I transitioned from full time employment to __working for myself__ earlier this year - albeit for the second time in my ~12 year long career as a Software Engineer.
 
 An anniversary begets reflection, so here's a post on __12 things I learned, forgot and relearned__ as a freelancer. To help me remember and to hopefully help others on the way to a successful freelance career 🙏
 
@@ -45,13 +45,15 @@ Make content and put it somewhere on the Internet. This is how your customers wi
 
 ## Find your niche and own it
 
-The desire to learn is a pre-requisite to becoming a Software Engineer which makes it seems unintuitive that being a "full-stack engineer for hire" doesn't automatically get you a job, even if that describes your abilities most accurately.
+The desire to learn is a pre-requisite to becoming a Software Engineer which makes it seem unintuitive that being a "full-stack engineer for hire" doesn't automatically get you a job, even if that describes your abilities most accurately.
 
 It all comes down to messaging and numbers. Put yourself into your customers shoes. They are looking for an engineer to help them build some software. Whether they run a small firm or lead an engineering team of 100, they will most likely be looking for someone who has a track record of experience in his particular field. What worked for me was to specialise in building text editors.
 
 If you find a niche that you truly love, it can feel like more of a calling than a job. Sounds cheesy but it rings true for many. If you have too many interests in your work to know which one to pick, pick more than one and see how it goes, get a feel for it etc. Try out writing blog posts on different topics and see how they perform if you're stuck.
 
 - Contribute to open source projects in your niche.
+
+Niches fragment into smaller niches. What may have been a niche 5 years ago could be multiple niches now.
 
 ## Always have a side-project
 

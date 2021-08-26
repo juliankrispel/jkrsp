@@ -45,14 +45,30 @@ const Bio = () => {
     >
       <div>
         <p>
-          I build <strong>text editing interfaces</strong> for startups (think <a target="_blank" href="https://roamresearch.com/">Roam</a>,{' '}
-          <a target="_blank" href="https://www.notion.so/">Notion</a>,{' '}
-          <a target="_blank" href="https://docs.google.com/">Google Docs</a> or{' '}
-          <a target="_blank" href="https://paper.dropbox.com/">Paper</a>).{' '}
+          I build <strong>text editing interfaces</strong> for startups (think{" "}
+          <a target="_blank" href="https://roamresearch.com/">
+            Roam
+          </a>
+          ,{" "}
+          <a target="_blank" href="https://www.notion.so/">
+            Notion
+          </a>
+          ,{" "}
+          <a target="_blank" href="https://docs.google.com/">
+            Google Docs
+          </a>{" "}
+          or{" "}
+          <a target="_blank" href="https://paper.dropbox.com/">
+            Paper
+          </a>
+          ).{" "}
         </p>
         <div className="email-action">
           <p>
-            For enquiries, please book <Cta href="https://calendly.com/jkrsp/first-chat">a meeting</Cta> or email me and we'll take it from there:
+            Currently not available for new projects.
+            <br />
+            Always open{" "}
+            <Cta href="https://calendly.com/jkrsp/first-chat">for a chat 👋</Cta>.
             <br />
             <strong>julian [at] jkrsp [dot] com</strong>
           </p>
