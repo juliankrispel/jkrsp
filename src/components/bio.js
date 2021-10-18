@@ -36,7 +36,6 @@ const Bio = () => {
     }
   `)
 
-  const { author, social } = data.site.siteMetadata
   return (
     <div
       style={{
@@ -45,30 +44,18 @@ const Bio = () => {
     >
       <div>
         <p>
-          I build <strong>text editing interfaces</strong> for startups (think{" "}
-          <a target="_blank" href="https://roamresearch.com/">
-            Roam
-          </a>
-          ,{" "}
-          <a target="_blank" href="https://www.notion.so/">
-            Notion
-          </a>
-          ,{" "}
-          <a target="_blank" href="https://docs.google.com/">
-            Google Docs
-          </a>{" "}
-          or{" "}
-          <a target="_blank" href="https://paper.dropbox.com/">
-            Paper
-          </a>
-          ).{" "}
+          I help software teams build{" "}
+          <strong>text based editing interfaces</strong>
         </p>
         <div className="email-action">
           <p>
-            Currently not available for new projects.  Always open{" "}
-            <Cta href="https://calendly.com/jkrsp/first-chat">for a chat</Cta>.
+            For enquiries,{" "}
+            <Cta href="https://calendly.com/jkrsp/office">
+              please book something on my calendar
+            </Cta>
+            .
             <br />
-            <strong>julian [at] jkrsp [dot] com</strong>
+            Or email me at <strong>julian [at] jkrsp [dot] com</strong>
           </p>
         </div>
       </div>
