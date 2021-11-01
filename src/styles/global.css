@@ -229,3 +229,12 @@ table {
   line-height: 1.2em;
 }
 
+.client-logo {
+  width: 60px;
+  opacity: .7;
+  margin-right: 1em;
+}
+
+small {
+  font-size: 0.8em;
+}
