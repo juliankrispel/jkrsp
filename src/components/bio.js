@@ -61,44 +61,6 @@ const Bio = () => {
       </div>
       <div>
         <div>
-          <p>
-            <small>Some awesome companies I've worked with</small>
-          </p>
-          <a title="Attio" href="https://attio.com/">
-            <img alt="Attio" className="client-logo" src="clients/attio.png" />
-          </a>
-          <a title="Aula Education" href="https://aula.education/">
-            <img
-              alt="Aula Education"
-              className="client-logo"
-              src="clients/aula.png"
-            />
-          </a>
-          <a tettra="Spectrum" href="https://spectrum.chat/">
-            <img
-              alt="Spectrum"
-              className="client-logo"
-              src="clients/spectrum.jpg"
-            />
-          </a>
-          <a title="Tettra" href="https://tettra.com/">
-            <img
-              alt="Tettra"
-              className="client-logo"
-              src="clients/tettra.jpg"
-            />
-          </a>
-          <a title="Broadcast" href="https://withbroadcast.com/">
-            <img
-              alt="Broadcast"
-              className="client-logo"
-              src="clients/broadcast.png"
-            />
-          </a>
-          <p>
-            <small>Things people say about working with me</small>
-          </p>
-
           <blockquote class="twitter-tweet">
             <p lang="en" dir="ltr">
               Can vouch for Julian, he did fantastic work for us at Spectrum!
