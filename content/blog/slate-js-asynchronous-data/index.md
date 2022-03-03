@@ -2,7 +2,7 @@
 title: Uploading media and rendering loading states with slate js.
 date: "2022-03-03T14:00:00.284Z"
 description: In this blogpost I'll go through how to tackle uploading media and rendering a loading state with Entities.
-draft: true
+draft: false
 image: uploading-image-flow.png
 ---
 
