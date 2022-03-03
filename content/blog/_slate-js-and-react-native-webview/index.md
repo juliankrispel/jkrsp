@@ -5,7 +5,7 @@ description: In this blogpost we'll learn how to use slate.js inside a react-nat
 draft: true
 ---
 
-### Compiling your editor into one html file react-native-webvie 
+### Compiling your editor into one html file react-native-webview
 
 ### Sending messages from web-view to react-native
 
