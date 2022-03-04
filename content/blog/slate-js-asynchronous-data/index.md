@@ -262,7 +262,7 @@ What we're doing here is:
 
 1. We're getting all the files from our event (located in event.dataTransfer.items). This is a special type that's why I'm using Array.from to convert it to an array.
 2. Then I'm looping over them to upload the files.
-3. For every we element we need to create an id (I'm using the [nanoid](https://www.npmjs.com/package/nanoid) package to do this).
+3. For every element we create an id (I'm using the [nanoid](https://www.npmjs.com/package/nanoid) package to do this).
 4. We're then using the upsertEntity method to create an empty entity and we insert the node with a reference to that entity.
 5. We're uploading the file via `filestack.upload()` - pretty simple!
 6. Once the file is uploaded we use the url in the response to update the entity.
