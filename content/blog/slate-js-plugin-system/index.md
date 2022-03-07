@@ -35,7 +35,7 @@ Frankly, the cognitive burden for developers will always be higher in text edito
 
 That doesn't mean that they have to be complicated codebases however.
 
-Plugin systems have prevailed as a dominant architecture in text editing and IDEs for good reason. They soothe the pains described above, let's have a look at how they do that.
+Plugin systems have prevailed as a dominant architecture [in](https://tiptap.dev/) [text](https://www.tiny.cloud/docs/plugins/) [editors](https://www.draft-js-plugins.com/) [and](https://marketplace.eclipse.org/) [IDEs](https://code.visualstudio.com/api) for good reason. They soothe the pains described above, let's have a look at how they do that.
 
 ## Plugins are a better mental model
 
