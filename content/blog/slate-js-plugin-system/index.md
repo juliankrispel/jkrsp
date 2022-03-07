@@ -1,6 +1,6 @@
 ---
 title: How to build your own slate js plugin system
-date: "2022-03-07T16:00:00.284Z"
+date: "2022-03-07T13:37:00.284Z"
 description: Rolling your own plugin system is actually surprisingly simple. In this article I'll show you how.
 image: composable-editor.png
 draft: false
