@@ -1,7 +1,7 @@
 ---
-title: Why you need a plugin system for slate-js and how to roll your own.
+title: How to roll your own plugin system
 date: "2022-03-07T13:37:00.284Z"
-description: Rolling your own plugin system is actually surprisingly simple. In this article I'll go over the benefits my clients see from adopting them and how to roll your own.
+description: Building your own plugin system is actually surprisingly simple. In this article I'll go over the benefits you see from adopting them and how to roll your own.
 image: composable-editor.png
 draft: false
 --- 
@@ -118,7 +118,7 @@ const headerPlugin: Plugin = (editableProps, editor) => {
   return {
     ...editableProps,
     renderElement: (props) => {
-      if (props.type === 'header') {
+      if (props.element.type === 'header') {
         return <h2 {...props.attributes}>{props.children}</h2>
       }
       
