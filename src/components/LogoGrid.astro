@@ -1,0 +1,51 @@
+---
+// Import the image utilities from Astro
+import { Image } from "astro:assets"
+
+// Get all logo images from the content/logos directory
+const logos = await Astro.glob("/src/content/logos/*")
+const links = {
+  amberscript: "https://www.amberscript.com/",
+  attio: "https://attio.com",
+  boo: "https://boo.ai",
+  github: "https://github.com/",
+  instapanel: "https://instapanel.com/",
+  dictionary: "https://dictionary.com/",
+  hipclip: "https://hipclip.ai/",
+  lifeboxhealth: "https://www.definitionhealth.co.uk/solutions/lifebox",
+  livedocs: "https://livedocs.com/",
+  meta: "https://www.meta.com/",
+  midjourney: "https://www.midjourney.com/",
+  tettra: "https://tettra.com",
+  aula: "https://aula.com",
+  spectrum: "https://spectrum.com",
+  craft: "https://craft.do",
+  guru: "https://app.getguru.com/",
+  futurefinance: "https://find-and-update.company-information.service.gov.uk/company/FC032628",
+}
+const logosSrcAndName = logos.map((logo) => {
+  const name = logo.default.src.toString().split("/").pop().split(".").shift()
+  return {
+    src: logo.default,
+    name: name,
+    link: links[name as keyof typeof links],
+  }
+})
+---
+
+<div class="flex flex-wrap justify-center gap-8 max-w-screen-lg">
+  {
+    logosSrcAndName.map((logo) => (
+      <div class="flex items-center justify-center">
+        <a href={logo.link} target="_blank" title={logo.name}>
+          <Image
+            src={logo.src}
+            alt={logo.name}
+            height={50}
+            class="object-contain max-w-36 max-h-10"
+          />
+        </a>
+      </div>
+    ))
+  }
+</div>

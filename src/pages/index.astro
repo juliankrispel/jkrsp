@@ -1,0 +1,71 @@
+---
+import BaseHead from "../components/BaseHead.astro"
+import Header from "../components/Header.astro"
+import Footer from "../components/Footer.astro"
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"
+import LogoGrid from "../components/LogoGrid.astro"
+import { getCollection } from "astro:content"
+import FormattedDate from "../components/FormattedDate.astro"
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+)
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="">
+    <Header />
+    <main class="flex flex-col items-center justify-center px-8 gap-8">
+      <div
+        class="flex flex-col justify-center gap-3 text-center max-w-screen-md"
+      >
+        <div class="text-xl">👋</div>
+        <h1 class="text-3xl font-bold pb-4">Hi I'm Julian</h1>
+        <p class="text-xl">
+          I help software teams build <strong>great editing experiences</strong>.
+        </p>
+        <p class="text-xl">
+          For enquiries <a
+            class="underline font-bold"
+            href="https://calendly.com/jkrsp/office">please book a meeting here</a
+          >, or email me at julian [at] jkrsp [dot] com
+        </p>
+      </div>
+
+      <div
+        class="flex flex-col items-center justify-center gap-6 text-center max-w-screen-md py-8"
+      >
+        <small class="italic"
+          >Here are some companies I've worked with:</small
+        >
+        <LogoGrid />
+      </div>
+      <section
+        class="flex flex-col items-center justify-center gap-6 text-center max-w-screen-md py-8"
+      >
+        <div class="text-2xl">✍️</div>
+        <h2 class="text-2xl font-bold">Blog posts</h2>
+        <ul class="flex flex-col gap-8 center">
+          {
+            posts.map((post) => (
+              <li class="list-item">
+                <a href={`/blog/${post.id}/`}>
+                  <h4 class="text-xl font-semibold">{post.data.title}</h4>
+                  <p class="date">
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+
+    <Footer />
+  </body>
+</html>
