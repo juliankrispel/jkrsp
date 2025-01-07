@@ -32,30 +32,21 @@ jobs:
         with:
           terraform_version: "1.7.0"
 
-      - name: Terraform Init and Upgrade
-        run: |
-          # Initialize without backend first
-          terraform init -backend=false
-          
-          # Replace the provider in state
-          terraform state replace-provider "registry.terraform.io/-/aws" "registry.terraform.io/hashicorp/aws"
-          
-          # Now initialize with backend and migrate state
-          terraform init -reconfigure \
-            -backend-config="key=jkrsp.com.tfstate"
-
-      - name: Terraform Plan
-        run: terraform plan -out tf.plan
-
-      - name: Terraform Apply
-        run: terraform apply tf.plan
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
+
+      - name: Terraform Init
+        run: terraform init -backend-config="key=jkrsp.com.tfstate"
+
+      - name: Terraform Plan
+        run: terraform plan -out tf.plan
+
+      - name: Terraform Apply
+        run: terraform apply tf.plan
 
       - name: Sync to S3
         run: aws s3 sync dist s3://jkrsp.com
