@@ -12,24 +12,27 @@ jobs:
       BRANCH_NAME: ${{ github.head_ref }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
         with:
-          ref: ${{ github.head_ref }}
-      - name: 'Terraform Init'
-        uses: hashicorp/terraform-github-actions@master
+          terraform_version: "1.7.0"
+
+      - name: Terraform Init
+        run: terraform init -backend-config="key=${{ env.BRANCH_NAME }}.jkrsp.com.tfstate"
+
+      - name: Terraform Destroy
+        run: terraform destroy -auto-approve -var="is_temp_env=true" -var="env_prefix=${{ env.BRANCH_NAME }}."
+
+      - name: Add PR Comment
+        uses: actions/github-script@v7
         with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'init'
-          args: '-backend-config="key=${{ env.BRANCH_NAME }}.jkrsp.com.tfstate"'
-      - name: 'Terraform Destroy'
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'destroy'
-          args: '-var="is_temp_env=true" -var="env_prefix=${{ env.BRANCH_NAME }}."'
-      - name: Tell PR that we have destroyed the thing
-        uses: thollander/actions-comment-pull-request@master
-        with:
-          message: 'Temporary environment now destroyed'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: 'Temporary environment now destroyed'
+            })
 
