@@ -59,5 +59,5 @@ resource "aws_s3_bucket_policy" "b" {
 }
 
 output "website" {
-  value = "http://${aws_s3_bucket.b.bucket_regional_domain_name}"
+  value = "http://${aws_s3_bucket_website_configuration.b.website_endpoint}"
 }
