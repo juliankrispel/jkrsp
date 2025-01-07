@@ -6,7 +6,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"
 import LogoGrid from "../components/LogoGrid.astro"
 import { getCollection } from "astro:content"
 import FormattedDate from "../components/FormattedDate.astro"
-
+import JkrspLogo from "../components/JkrspLogo.astro"
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 )
@@ -18,13 +18,14 @@ const posts = (await getCollection("blog")).sort(
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body class="">
-    <Header />
-    <main class="flex flex-col items-center justify-center px-8 gap-8">
+    <main class="flex flex-col items-center justify-center px-8 gap-8 py-8">
       <div
         class="flex flex-col justify-center gap-3 text-center max-w-screen-md"
       >
-        <div class="text-xl">👋</div>
-        <h1 class="text-3xl font-bold pb-4">Hi I'm Julian</h1>
+        <div class="flex flex-row items-center justify-center gap-4 py-10">
+          <JkrspLogo width="80px" />
+          <h1 class="text-3xl font-bold">Hi I'm Julian</h1>
+        </div>
         <p class="text-xl">
           I help software teams build <strong>great editing experiences</strong>.
         </p>
@@ -36,13 +37,57 @@ const posts = (await getCollection("blog")).sort(
         </p>
       </div>
 
-      <div
+      <section
         class="flex flex-col items-center justify-center gap-6 text-center max-w-screen-md py-8"
       >
         <small class="italic"
           >Here are some companies I've worked with:</small
         >
         <LogoGrid />
+      </section>
+      <section>
+        <div>
+          <blockquote class="twitter-tweet">
+            <p lang="en" dir="ltr">
+              Can vouch for Julian, he did fantastic work for us at Spectrum!
+              Very few people know more about rich text editors.
+            </p>
+            &mdash; Max Stoiber (@mxstbr){" "}
+            <a href="https://twitter.com/mxstbr/status/1420499475739590656?ref_src=twsrc%5Etfw">
+              July 28, 2021
+            </a>
+          </blockquote>{" "}
+          <blockquote class="twitter-tweet">
+            <p lang="en" dir="ltr">
+              It&#39;s{" "}
+              <a href="https://twitter.com/_jkrsp?ref_src=twsrc%5Etfw">
+                @_jkrsp
+              </a>
+              &#39;s last week{" "}
+              <a href="https://twitter.com/aula_education?ref_src=twsrc%5Etfw">
+                @aula_education
+              </a>{" "}
+              after working with us architecting and building our brand new
+              content editor for 9 months
+              <br />
+              <br />
+              💜He has been fundamental to us being able to deliver an editor
+              that is performant, accessible, well tested, easy to extend and
+              feels great to use.
+            </p>
+            &mdash; David Saltares (@d_saltares){" "}
+            <a href="https://twitter.com/d_saltares/status/1442458402270023683?ref_src=twsrc%5Etfw">
+              September 27, 2021
+            </a>
+          </blockquote>
+          <script
+            async
+            src="https://platform.twitter.com/widgets.js"
+            charset="utf-8"
+          ></script>
+
+      </section>
+
       </div>
       <section
         class="flex flex-col items-center justify-center gap-6 text-center max-w-screen-md py-8"
@@ -65,7 +110,6 @@ const posts = (await getCollection("blog")).sort(
         </ul>
       </section>
     </main>
-
     <Footer />
   </body>
 </html>
