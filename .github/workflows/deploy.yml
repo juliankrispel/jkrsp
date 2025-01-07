@@ -34,9 +34,8 @@ jobs:
 
       - name: Terraform Init
         run: |
-          terraform init -upgrade
-          terraform 0.13upgrade
-          terraform init -backend-config="key=jkrsp.com.tfstate"
+          terraform init -upgrade \
+            -backend-config="key=jkrsp.com.tfstate"
 
       - name: Terraform Plan
         run: terraform plan -out tf.plan
