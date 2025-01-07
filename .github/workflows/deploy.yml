@@ -33,7 +33,10 @@ jobs:
           terraform_version: "1.7.0"
 
       - name: Terraform Init
-        run: terraform init --upgrade -backend-config="key=jkrsp.com.tfstate"
+        run: |
+          terraform init -upgrade
+          terraform 0.13upgrade
+          terraform init -backend-config="key=jkrsp.com.tfstate"
 
       - name: Terraform Plan
         run: terraform plan -out tf.plan
