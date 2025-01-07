@@ -33,10 +33,10 @@ jobs:
           terraform_version: "1.7.0"
 
       - name: Terraform Init
-        run: terraform init -backend-config="key=${{ env.ENV_PREFIX }}jkrsp.com.tfstate"
+        run: terraform init -backend-config="key=jkrsp.com.tfstate"
 
       - name: Terraform Plan
-        run: terraform plan -var="env_prefix=${{ env.ENV_PREFIX }}" -out tf.plan
+        run: terraform plan -out tf.plan
 
       - name: Terraform Apply
         run: terraform apply tf.plan
@@ -52,4 +52,5 @@ jobs:
         run: aws s3 sync dist s3://jkrsp.com
 
       - name: Invalidate CloudFront Cache
+        if: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID != '' }}
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }} --paths="/*"
