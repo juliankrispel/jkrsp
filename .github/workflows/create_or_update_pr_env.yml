@@ -51,7 +51,7 @@ jobs:
           aws-region: eu-west-2
 
       - name: Sync to S3
-        run: aws s3 sync public s3://${{ env.BRANCH_NAME }}.jkrsp.com
+        run: aws s3 sync dist s3://${{ env.BRANCH_NAME }}.jkrsp.com
 
       - name: Add PR Comment
         uses: actions/github-script@v7
