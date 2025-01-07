@@ -1,240 +1,31 @@
-/* global.css */
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
 
-body {
-  transition: 300ms background-color;
-  --bg: white;
-  --textNormal: #333;
-  --textTitle: #333;
-  --textLink: #1a1b23;
-  --bg-code: #f0f0f0;
-  --logo: #000;
-  --hr: hsla(0, 0%, 0%, 0.2);
-  --cta: #ffd244;
-
-  background-color: var(--bg);
-
-  max-width: 1300px;
-  margin: auto;
-  display: block;
-  position: relative;
-
-  outline-color: var(--cta);
+:root {
+	--accent: #2337ff;
+	--accent-dark: #000d8a;
+	--black: 15, 18, 25;
+	--gray: 96, 115, 159;
+	--gray-light: 229, 233, 240;
+	--gray-dark: 34, 41, 57;
+	--gray-gradient: rgba(var(--gray-light), 50%), #fff;
+	--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+		0 16px 32px rgba(var(--gray), 33%);
 }
-
-body.dark {
-  -webkit-font-smoothing: antialiased;
-
-  --bg: #1a1b23;
-  --bg-code: #000;
-  --logo: #fff;
-  --textNormal: rgba(255, 255, 255, 0.88);
-  --textTitle: white;
-  --textLink: white;
-  --hr: hsla(0, 0%, 100%, 0.2);
-  --cta: #ffd244;
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/fonts/atkinson-regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
 }
-
-.light-switch input{
-  display: none;
-}
-
-.light-switch {
-  border-radius: 100px;
-  width: 30px;
-  height: 30px;
-  overflow: hidden;
-  cursor: pointer;
-  margin: 0;
-  text-align: center;
-  position: fixed;
-  right: 5px;
-  top: 5px;
-
-}
-
-.light-switch span {
-  padding-left: .3em;
-}
-
-a {
-  color: var(--textLink);
-}
-
-a.anchor svg[aria-hidden="true"] {
-  stroke: var(--textLink);
-}
-
-hr {
-  background: var(--hr);
-}
-
-.logo {
-  position: absolute;
-  top: 2em;
-  left: 1em;
-  width: 150px;
-  border-radius: 2px;
-  transform: rotate(-2deg);
-  padding: .2em;
-  transition: 300ms;
-}
-
-.logo:hover {
-  transform: rotate(1deg) scale(1.1);
-}
-
-body.dark .logo{
-  background: hsl(223deg 22% 64%);
-  box-shadow: 3px 3px 3px #000;
-}
-
-.logo path {
-  fill: #000;
-  stroke: none;
-}
-
-@media (max-width: 1200px) {
-  .logo {
-    margin-left: 0;
-    left: 1em;
-    width: 90px;
-  }
-}
-
-@media (max-width: 1050px) {
-  .logo {
-    position: relative;
-    left: 0;
-    margin-left: 0;
-    right: auto;
-    margin: -1em 0 2em 0;
-  }
-}
-
-
-
-header {
-  padding-top: 0;
-  margin: 0;
-}
-
-article {
-  padding-bottom: 1em;
-}
-
-.cta {
-  text-align: right;
-  font-weight: bold;
-  display: inline-block;
-  color: #000;
-  box-shadow: inset 0 -.15em 0 var(--cta);
-  background: transparent;
-  padding: .2em 0;
-  transition: 100ms;
-  text-decoration: none;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  line-height: 1em;
-}
-
-body.dark .cta {
-  color: var(--cta);
-}
-
-.cta:hover {
-  box-shadow: inset 0 -1.4em 0 var(--cta);
-  margin-bottom: 2px;
-  color: #000 !important;
-  padding: .2em .2em;
-  margin-top: -2px
-}
-
-@media(max-width: 800px) {
-  .cta {
-    transform: none !important;
-  }
-}
-
-
-blockquote {
-  position: relative;
-}
-
-blockquote:before {
-  content: '\201C';
-  display: block;
-  position: absolute;
-  top: -.8rem;
-  font-size: 3em;
-  left: -1.6rem;
-}
-
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
-  background: var(--bg-code);
-  color: var(--logo);
-  padding: .2em 0.3em;
-  border-radius: 2px;
-  text-shadow: none;
-  font-size: 0.85em;
-  line-height: .9em;
-}
-
-pre[class*="language-"] {
-  background: var(--bg-code);
-  color: var(--logo);
-  border-radius: 3px;
-  font-size: 0.85em;
-  line-height: .9em;
-  padding: 1em;
-  margin-bottom: 2em;
-}
-
-pre[class*="language-"] code {
-  background: none;
-  color: var(--logo);
-  text-shadow: none;
-}
-
-
-pre[class*="language-"] .operator {
-  background: none;
-}
-
-.email-img {
-  max-width: 200px;
-  display: inline-block;
-  height: auto;
-  vertical-align: middle;
-  transform: rotate(-4deg);
-  margin-right: -3em;
-  border-radius: 3px;
-  align-self: center;
-}
-
-
-@media (max-width: 1000px) {
-  .email-img {
-    margin-right: 0;
-  }
-}
-
-.email-action {
-  display: flex;
-  align-content: center;
-}
-
-
-table {
-  font-size: 0.9em;
-  line-height: 1.2em;
-}
-
-.client-logo {
-  width: 60px;
-  opacity: .7;
-  margin-right: 1em;
-}
-
-small {
-  font-size: 0.8em;
+@font-face {
+	font-family: 'Atkinson';
+	src: url('/fonts/atkinson-bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
 }

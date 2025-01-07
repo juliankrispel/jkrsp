@@ -1,0 +1,31 @@
+---
+import BlueSkyLogo from "./BlueSkyLogo.astro"
+import GithubLogo from "./GithubLogo.astro"
+
+const today = new Date();
+---
+
+<footer class="flex flex-col items-center justify-center gap-4 text-center pt-8">
+	&copy; {today.getFullYear()} Julian Krispel. All rights reserved.
+    <div class="flex flex-row gap-4 items-center py-4">
+      <a
+        href="https://twitter.com/_jkrsp"
+        target="_blank"
+        class="hover:text-blue-500"
+
+      >
+        <span class="sr-only">Follow Julian on BlueSky</span>
+        <BlueSkyLogo />
+      </a>
+
+      <a
+        href="https://github.com/juliankrispel"
+        target="_blank"
+        class="hover:text-blue-500"
+      >
+        <span class="sr-only">Go to Julian's GitHub repo</span>
+        <GithubLogo />
+      </a>
+    </div>
+
+</footer>
