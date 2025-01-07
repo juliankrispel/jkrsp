@@ -33,11 +33,7 @@ jobs:
           terraform_version: "1.7.0"
 
       - name: Terraform Init
-        run: |
-          terraform init -backend=false
-          terraform state replace-provider registry.terraform.io/-/aws registry.terraform.io/hashicorp/aws
-          terraform init -migrate-state \
-            -backend-config="key=jkrsp.com.tfstate"
+        run: terraform init -backend-config="key=jkrsp.com.tfstate"
 
       - name: Terraform Plan
         run: terraform plan -out tf.plan
