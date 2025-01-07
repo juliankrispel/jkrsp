@@ -12,47 +12,57 @@ jobs:
       BRANCH_NAME: ${{ github.head_ref }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
       - name: Install Dependencies
-        run: yarn
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Install Dependencies
-        run: yarn
+        run: bun install
+
       - name: Build Site
-        run: yarn build
-      - name: 'Terraform Init'
-        uses: hashicorp/terraform-github-actions@master
+        run: bun run build
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
         with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'init'
-          args: '-backend-config="key=${{ env.BRANCH_NAME }}.jkrsp.com.tfstate"'
+          terraform_version: "1.7.0"
+
+      - name: Terraform Init
+        run: terraform init -backend-config="key=${{ env.BRANCH_NAME }}.jkrsp.com.tfstate"
+
       - name: Terraform Plan
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'plan'
-          args: '-var="is_temp_env=true" -var="env_prefix=${{ env.BRANCH_NAME }}." -out tf.plan'
+        run: terraform plan -var="is_temp_env=true" -var="env_prefix=${{ env.BRANCH_NAME }}." -out tf.plan
+
       - name: Terraform Apply
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'apply'
-          args: 'tf.plan'
+        run: terraform apply tf.plan
+
       - name: Terraform Output
         id: terraform
-        uses: hashicorp/terraform-github-actions@master
+        run: echo "website=$(terraform output -raw website)" >> $GITHUB_OUTPUT
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'output'
-          args: 'website'
-      - name: sync to s3
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      - name: Sync to S3
         run: aws s3 sync public s3://${{ env.BRANCH_NAME }}.jkrsp.com
-      - run: node .github/actions/comment.js
+
+      - name: Add PR Comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `[Review website here](${process.env.WEBSITE_LINK})`
+            })
         env:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          issue_number: ${{ github.event.pull_request.number }}
-          repo: 'jkrsp'
-          owner: ${{ github.repository_owner }}
-          website_link: ${{ steps.terraform.outputs.tf_actions_output }}
+          WEBSITE_LINK: ${{ steps.terraform.outputs.website }}
 
