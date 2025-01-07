@@ -31,6 +31,14 @@ resource "aws_s3_bucket_website_configuration" "b" {
   }
 }
 
+resource "aws_s3_bucket_ownership_controls" "b" {
+  bucket = aws_s3_bucket.b.id
+  
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
+
 resource "aws_s3_bucket_public_access_block" "b" {
   bucket = aws_s3_bucket.b.id
 
@@ -41,7 +49,10 @@ resource "aws_s3_bucket_public_access_block" "b" {
 }
 
 resource "aws_s3_bucket_policy" "b" {
-  depends_on = [aws_s3_bucket_public_access_block.b]
+  depends_on = [
+    aws_s3_bucket_public_access_block.b,
+    aws_s3_bucket_ownership_controls.b
+  ]
   
   bucket = aws_s3_bucket.b.id
   policy = jsonencode({
@@ -51,8 +62,12 @@ resource "aws_s3_bucket_policy" "b" {
         Sid       = "PublicReadGetObject"
         Effect    = "Allow"
         Principal = "*"
-        Action    = "s3:GetObject"
-        Resource  = "arn:aws:s3:::${var.env_prefix}jkrsp.com/*"
+        Action    = [
+          "s3:GetObject"
+        ]
+        Resource = [
+          "arn:aws:s3:::${var.env_prefix}jkrsp.com/*"
+        ]
       }
     ]
   })
