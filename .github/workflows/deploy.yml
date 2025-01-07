@@ -32,8 +32,17 @@ jobs:
         with:
           terraform_version: "1.7.0"
 
-      - name: Terraform Init
-        run: terraform init -backend-config="key=jkrsp.com.tfstate"
+      - name: Terraform Init and Upgrade
+        run: |
+          # Initialize without backend first
+          terraform init -backend=false
+          
+          # Replace the provider in state
+          terraform state replace-provider "registry.terraform.io/-/aws" "registry.terraform.io/hashicorp/aws"
+          
+          # Now initialize with backend and migrate state
+          terraform init -reconfigure \
+            -backend-config="key=jkrsp.com.tfstate"
 
       - name: Terraform Plan
         run: terraform plan -out tf.plan
