@@ -43,7 +43,7 @@ jobs:
         run: |
           terraform init -backend-config="key=jkrsp.com.tfstate"
           terraform state replace-provider "aws" "registry.terraform.io/hashicorp/aws"
-          terraform apply -auto-approve
+          terraform apply -auto-approve -var="env_prefix=" -var="is_temp_env=false"
 
       - name: Upgrade to Latest Terraform
         uses: hashicorp/setup-terraform@v3
@@ -53,7 +53,7 @@ jobs:
       - name: Terraform Init and Apply
         run: |
           terraform init -backend-config="key=jkrsp.com.tfstate"
-          terraform plan -out tf.plan
+          terraform plan -out tf.plan -var="env_prefix=" -var="is_temp_env=false"
           terraform apply tf.plan
 
       - name: Sync to S3
