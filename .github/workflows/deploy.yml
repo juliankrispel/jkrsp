@@ -30,7 +30,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "0.13.0"
+          terraform_version: "1.7.0"
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -39,22 +39,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Terraform Init with 0.13
-        run: |
-          terraform init -backend-config="key=jkrsp.com.tfstate"
-          terraform state replace-provider "aws" "registry.terraform.io/hashicorp/aws"
-          terraform apply -auto-approve -var="env_prefix=" -var="is_temp_env=false"
+      - name: Terraform Init
+        run: terraform init -backend-config="key=jkrsp.com.tfstate"
 
-      - name: Upgrade to Latest Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: "1.7.0"
+      - name: Terraform Plan
+        run: terraform plan -var="env_prefix=" -var="is_temp_env=false" -out tf.plan
 
-      - name: Terraform Init and Apply
-        run: |
-          terraform init -backend-config="key=jkrsp.com.tfstate"
-          terraform plan -out tf.plan -var="env_prefix=" -var="is_temp_env=false"
-          terraform apply tf.plan
+      - name: Terraform Apply
+        run: terraform apply tf.plan
 
       - name: Sync to S3
         run: aws s3 sync dist s3://jkrsp.com
