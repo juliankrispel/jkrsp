@@ -30,7 +30,7 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with:
-          terraform_version: "1.7.0"
+          terraform_version: "0.13.0"
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -39,29 +39,22 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Download Terraform State
+      - name: Terraform Init with 0.13
         run: |
-          aws s3 cp s3://jkrsp-tf-state/jkrsp.com.tfstate ./terraform.tfstate || true
-
-      - name: Terraform Init and Upgrade
-        run: |
-          # Initialize without backend
-          terraform init -backend=false
-          
-          # Upgrade state format if needed
-          terraform state replace-provider "aws" "registry.terraform.io/hashicorp/aws"
-          
-          # Push upgraded state back to S3
-          aws s3 cp ./terraform.tfstate s3://jkrsp-tf-state/jkrsp.com.tfstate
-          
-          # Now initialize with backend
           terraform init -backend-config="key=jkrsp.com.tfstate"
+          terraform state replace-provider "aws" "registry.terraform.io/hashicorp/aws"
+          terraform apply -auto-approve
 
-      - name: Terraform Plan
-        run: terraform plan -out tf.plan
+      - name: Upgrade to Latest Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.7.0"
 
-      - name: Terraform Apply
-        run: terraform apply tf.plan
+      - name: Terraform Init and Apply
+        run: |
+          terraform init -backend-config="key=jkrsp.com.tfstate"
+          terraform plan -out tf.plan
+          terraform apply tf.plan
 
       - name: Sync to S3
         run: aws s3 sync dist s3://jkrsp.com
