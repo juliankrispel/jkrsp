@@ -39,8 +39,23 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_REGION }}
 
-      - name: Terraform Init
-        run: terraform init -backend-config="key=jkrsp.com.tfstate"
+      - name: Download Terraform State
+        run: |
+          aws s3 cp s3://jkrsp-tf-state/jkrsp.com.tfstate ./terraform.tfstate || true
+
+      - name: Terraform Init and Upgrade
+        run: |
+          # Initialize without backend
+          terraform init -backend=false
+          
+          # Upgrade state format if needed
+          terraform state replace-provider "aws" "registry.terraform.io/hashicorp/aws"
+          
+          # Push upgraded state back to S3
+          aws s3 cp ./terraform.tfstate s3://jkrsp-tf-state/jkrsp.com.tfstate
+          
+          # Now initialize with backend
+          terraform init -backend-config="key=jkrsp.com.tfstate"
 
       - name: Terraform Plan
         run: terraform plan -out tf.plan
