@@ -1,6 +1,6 @@
 ---
 title: Getting Started with Lexical
-pubDate: "2024-06-11T00:00:00.000Z"
+pubDate: "2025-06-11T00:00:00.000Z"
 description: Getting Started with Lexical - A Beginner's Guide
 draft: false
 ---
