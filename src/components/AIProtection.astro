@@ -1,0 +1,58 @@
+---
+// AI Protection Component
+// This component adds comprehensive protection against AI crawlers
+---
+
+<!-- AI Crawler Protection Script -->
+<script is:inline>
+  // Block AI crawlers by detecting their user agents
+  const aiUserAgents = [
+    'GPTBot',
+    'ChatGPT-User',
+    'CCBot',
+    'anthropic-ai',
+    'Claude-Web',
+    'Omgilibot',
+    'Applebot',
+    'Google-Extended',
+    'Bard',
+    'Claude',
+    'PerplexityBot',
+    'YouBot',
+    'Crawler',
+    'Bot',
+    'Spider',
+    'Crawler'
+  ];
+
+  const userAgent = navigator.userAgent;
+  const isAICrawler = aiUserAgents.some(agent => 
+    userAgent.includes(agent) || 
+    userAgent.toLowerCase().includes('bot') ||
+    userAgent.toLowerCase().includes('crawler') ||
+    userAgent.toLowerCase().includes('spider')
+  );
+
+  if (isAICrawler) {
+    // Redirect AI crawlers to a blocked page or show no content
+    document.body.innerHTML = '<div style="display: none;">Content not available for AI crawlers</div>';
+    document.body.style.display = 'none';
+  }
+</script>
+
+<!-- Additional meta tags for AI protection -->
+<meta name="ai-content" content="blocked" />
+<meta name="ai-training" content="blocked" />
+<meta name="ai-indexing" content="blocked" />
+<meta name="ai-scraping" content="blocked" />
+
+<!-- Structured data to indicate AI blocking -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "aiContentPolicy": "blocked",
+  "aiTrainingPolicy": "blocked",
+  "aiIndexingPolicy": "blocked"
+}
+</script> 

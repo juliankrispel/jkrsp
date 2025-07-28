@@ -2,6 +2,7 @@
 import BaseHead from "../components/BaseHead.astro"
 import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
+import AIProtection from "../components/AIProtection.astro"
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts"
 import LogoGrid from "../components/LogoGrid.astro"
 import { getCollection } from "astro:content"
@@ -16,6 +17,7 @@ const posts = (await getCollection("blog")).sort(
 <html lang="en">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <AIProtection />
   </head>
   <body class="">
     <main class="flex flex-col items-center justify-center px-8 gap-8 py-8">

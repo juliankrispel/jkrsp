@@ -20,6 +20,19 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
 
+<!-- AI Crawler Protection - Only block AI training, allow search indexing -->
+<meta name="robots" content="noai, noimageai" />
+<meta name="googlebot" content="noai, noimageai" />
+<meta name="bingbot" content="noai, noimageai" />
+<meta name="GPTBot" content="noai, noimageai, noindex, nofollow" />
+<meta name="ChatGPT-User" content="noai, noimageai, noindex, nofollow" />
+<meta name="anthropic-ai" content="noai, noimageai, noindex, nofollow" />
+<meta name="Claude-Web" content="noai, noimageai, noindex, nofollow" />
+<meta name="CCBot" content="noai, noimageai, noindex, nofollow" />
+<meta name="Omgilibot" content="noai, noimageai, noindex, nofollow" />
+<meta name="Applebot" content="noai, noimageai, noindex, nofollow" />
+<meta name="Google-Extended" content="noai, noimageai, noindex, nofollow" />
+
 <!-- Font preloads -->
 <link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin />
 <link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin />

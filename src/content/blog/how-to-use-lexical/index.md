@@ -1,8 +1,14 @@
 ---
-title: Getting Started with Lexical
+title: "How to Use Lexical: Building Rich Text Editors with React"
 pubDate: "2025-06-11T00:00:00.000Z"
-description: Getting Started with Lexical - A Beginner's Guide
+description: "Learn how to build rich text editors with Lexical and React. Step-by-step guide with code examples, plugins, and best practices for creating extensible text editors."
 draft: false
+keywords: ["lexical", "rich text editor", "react", "javascript", "typescript", "meta", "facebook", "text editor", "wysiwyg"]
+author: "Julian Krispel"
+category: "Web Development"
+tags: ["lexical", "react", "rich-text-editor", "javascript", "typescript", "tutorial", "meta"]
+readingTime: "12 min read"
+difficulty: "Beginner"
 ---
 
 Lexical is a powerful, extensible text editor framework developed by Meta, designed for performance, reliability, and flexibility. If you're looking to build a rich text editor in your React application, Lexical provides a modern, modular approach that's easy to integrate and customize.

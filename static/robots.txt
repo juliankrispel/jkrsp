@@ -1,2 +1,39 @@
 User-agent: *
 Disallow:
+
+# Block AI crawlers and bots only
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Applebot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# Block AI training crawlers
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /
+
+# Block content directories for all crawlers (these are internal dev directories)
+User-agent: *
+Disallow: /content/
+Disallow: /src/content/
