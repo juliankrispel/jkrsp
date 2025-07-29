@@ -191,32 +191,22 @@ function handlePaste(event: React.ClipboardEvent, editor: ReactEditor) {
 
 ### ProseMirror
 
-For ProseMirror, you can use a custom paste handler in your plugin:
+For ProseMirror, you can use `transformPastedHTML` for better composability with other paste-related extensions:
 
 ```js
 import { Plugin } from 'prosemirror-state';
-import { DOMParser } from 'prosemirror-model';
 import { makeHtmlSemantic } from '../utils/makeHtmlSemantic';
 
 const semanticPastePlugin = new Plugin({
   props: {
-    handlePaste(view, event, slice) {
-      const html = event.clipboardData?.getData('text/html');
-      if (html) {
-        const cleanHtml = makeHtmlSemantic(html);
-        const parser = DOMParser.fromSchema(view.state.schema);
-        const dom = document.createElement('div');
-        dom.innerHTML = cleanHtml;
-        const docFragment = parser.parse(dom);
-        const tr = view.state.tr.replaceSelectionWith(docFragment);
-        view.dispatch(tr);
-        return true;
-      }
-      return false;
+    transformPastedHTML(html) {
+      return makeHtmlSemantic(html);
     },
   },
 });
 ```
+
+> **Note:** This section was updated based on feedback from [marijnh's comment](https://github.com/ProseMirror/prosemirror/issues/137#issuecomment-3068227258) recommending `transformPastedHTML` over `handlePaste` for better composability with other paste-related extensions.
 
 ---
 
