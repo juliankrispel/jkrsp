@@ -11,8 +11,6 @@ readingTime: "18 min read"
 difficulty: "Advanced"
 ---
 
-# Migrating Content Between Rich Text Editors: A Complete Guide
-
 Migrating content between rich text editors is one of the most challenging tasks in web development. Each editor has its own document model, data structure, and feature set, making direct migration anything but straightforward. Whether you're moving from Draft.js to Lexical, Slate to ProseMirror, or any other combination, this guide will help you understand the challenges and implement a successful migration strategy.
 
 ---
