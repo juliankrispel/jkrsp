@@ -20,6 +20,8 @@ Before diving into Lexical's solution, let's understand the problem it solves. T
 3. **Struggle with complex operations**: Nested structures, collaborative editing, and undo/redo often break selection state
 4. **Have limited selection types**: Most only support text ranges, making it difficult to select complex elements
 
+**Note**: It's important to clarify that not all editors fall into this category. ProseMirror, for example, uses a sophisticated hybrid approach that maintains its own selection state while synchronizing with the DOM, giving it many of the benefits of state-based selection management.
+
 ## Lexical's Approach
 
 Lexical flips this model on its head by making selection a **first-class citizen of the editor state**. Instead of being a side effect of DOM operations, selection is stored directly in the `EditorState` alongside the content tree.
@@ -648,16 +650,32 @@ Lexical's selection system is designed for performance:
 
 | Feature | Lexical | Draft.js | Slate.js | ProseMirror |
 |---------|---------|----------|----------|-------------|
-| Selection in Editor State | ✅ | ❌ | ❌ | ❌ |
+| Selection in Editor State | ✅ | ❌ | ✅ | ✅ |
 | Node Selection | ✅ | ❌ | ✅ | ✅ |
 | Table Selection | ✅ | ❌ | ❌ | ✅ |
-| Custom Selection Types | ✅ | ❌ | ❌ | ❌ |
+| Custom Selection Types | ✅ | ❌ | ❌ | ✅ |
 | Selection Serialization | ✅ | ❌ | ✅ | ✅ |
 | Collaborative Selection | ✅ | ❌ | ✅ | ✅ |
 
+### How Different Editors Handle Selection
+
+#### Lexical
+Lexical makes selection a first-class citizen of the editor state, storing it directly alongside the content tree. This provides the most predictable and consistent selection behavior.
+
+#### ProseMirror
+ProseMirror uses a sophisticated hybrid approach that combines native DOM selection with its own internal selection tracking system. It maintains selection state in `EditorState` through a hierarchy of Selection classes (TextSelection, NodeSelection, AllSelection, GapSelection) while constantly synchronizing with the DOM. This gives ProseMirror many of the benefits of state-based selection management while maintaining compatibility with native browser behavior.
+
+#### Slate.js
+Slate stores selection in its editor state but relies more heavily on DOM selection for certain operations. It provides good selection serialization and collaborative editing support.
+
+#### Draft.js
+Draft.js primarily relies on DOM selection and doesn't maintain comprehensive selection state in its editor state, which can lead to the synchronization issues mentioned earlier.
+
 ## Conclusion
 
-Lexical's selection system represents a fundamental rethinking of how rich text editors should handle selection state. By making selection a first-class citizen of the editor state rather than a side effect of DOM operations, Lexical achieves levels of reliability, predictability, and functionality that other editors simply cannot match.
+Lexical's selection system represents a fundamental rethinking of how rich text editors should handle selection state. By making selection a first-class citizen of the editor state rather than a side effect of DOM operations, Lexical achieves levels of reliability, predictability, and functionality that are among the best in the industry.
+
+It's worth noting that other editors like ProseMirror have also solved many of these problems through different architectural approaches - ProseMirror's hybrid DOM/state synchronization system provides similar benefits through a different mechanism.
 
 The extensibility of the selection system through custom implementations of `BaseSelection` opens up possibilities that were previously impossible in rich text editors. Whether you need specialized selections for code blocks, spreadsheets, collaborative commenting, or any other complex use case, Lexical provides the foundation to build exactly what you need.
 
@@ -669,7 +687,7 @@ This design enables powerful features like:
 - Predictable selection behavior across all operations
 - Extensible selection types for specialized use cases
 
-For developers building rich text applications, Lexical's selection system alone is reason enough to consider switching from other frameworks. The mental model is simpler, the behavior is more predictable, and the possibilities are endless.
+For developers building rich text applications, Lexical's selection system offers a compelling approach to selection management. The mental model is clean and straightforward, the behavior is highly predictable, and the extensibility opens up many possibilities.
 
 The selection system exemplifies Lexical's philosophy: instead of fighting the browser's limitations, create a better abstraction that works reliably across all scenarios. It's a lesson in how thoughtful architecture can transform a complex problem into an elegant solution.
 
