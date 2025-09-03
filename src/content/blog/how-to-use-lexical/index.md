@@ -121,12 +121,15 @@ Lexical is highly customizable. You can:
 - **Define Custom Nodes:** Extend the editor with new node types (e.g., tables, mentions).
 - **Style the Editor:** Use your own themes and CSS.
 
+> **💡 Want to dive deeper into plugin development?** Check out our comprehensive guide on [Creating Lexical Plugins](/blog/creating-lexical-plugins) where we build real-world examples including toolbars, custom nodes, and advanced features.
+
 ---
 
 ## Next Steps
 
 - Explore the [Lexical documentation](https://lexical.dev/docs) for more advanced features.
 - Check out the `examples/` directory in the Lexical repo for real-world usage.
+- **Build custom plugins:** Read our [Creating Lexical Plugins](/blog/creating-lexical-plugins) guide for step-by-step examples.
 - Try building your own plugins and custom nodes!
 
 ---
